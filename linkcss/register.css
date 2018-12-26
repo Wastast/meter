@@ -1,0 +1,119 @@
+body {
+  background: #F9F9F9;
+}
+.register {
+  width: 854px;
+  height: 638px;
+  margin: 100px auto 0;
+  background-color: #fff;
+  padding: 0 34px 34px 34px;
+}
+.logo {
+  height: 48px;
+  padding-bottom: 40px;
+}
+.logo img {
+  display: block;
+  margin: 0 auto;
+  width: 49px;
+  height: 48px;
+}
+.title {
+  text-align: center;
+}
+.title h4 {
+  font-size: 30px;
+  font-weight: normal;
+}
+.register-input {
+  padding: 30px 0;
+  width: 332px;
+  height: 246px;
+  margin: 0 auto;
+}
+.input-title {
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+.country {
+  height: 40px;
+  /*padding-left: 14px;*/
+  line-height: 40px;
+  border: 1px solid #e8e8e8;
+  margin-bottom: 5px;
+}
+.country p {
+  width: 275px;
+  border-right: 1px solid #e8e8e8;
+  float: left;
+}
+.country a {
+  color: #333;
+}
+/*.country span {
+  margin: 0 10px;
+}*/
+.country .country_area {
+  box-sizing: border-box;
+  padding-left: 14px;
+  float: left;
+  display: block;
+  width: 276px;
+  height: 40px;
+
+}
+.country .down {
+  float: right;
+  display: block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+.country-bottom {
+  font-weight: normal;
+  color: #555;
+  margin-bottom: 15px;
+}
+.phone-input {
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #e8e8e8;
+  margin-bottom: 30px;
+}
+.area {
+  width: 72px;
+  height: 40px;
+  float: left;
+  border-right: 1px solid #e8e8e8;
+  text-align: center;
+  line-height: 40px;
+  color: #555;
+}
+input[type="text"]{
+  color: #9d9d9d;
+  height: 40px;
+  line-height: 40px;
+  width: 241px;
+  outline: none;
+  float: right;
+  padding-left: 14px;
+}
+.register-btn {
+  background-color: #ff6700;
+  text-align: center;
+  line-height: 40px;
+}
+.register-btn a {
+  display: block;
+  height: 40px;
+  color: #fff;
+}
+.treaty {
+  text-align: center;
+  color: #9d9d9d;
+}
+.treaty a {
+  font-weight: bold;
+  color: #333;
+}

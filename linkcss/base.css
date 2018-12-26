@@ -1,0 +1,30 @@
+/*----CSS初始化-------*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+body {
+    font: 14px  "Microsoft Yahei";
+}
+
+/*------清除浮动特性*/
+.clearfix::befroe,
+.clearfix::after {
+    content: '';
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
