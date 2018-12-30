@@ -5,10 +5,7 @@ tbody {
 }
 
 /*定义通用边框*/
-.currency {
-    margin: 0 auto;
-    width: 1226px;
-}
+
 
 main {
     height: 6936px;
@@ -23,21 +20,6 @@ header {
 
 .banner-one {
     height: 615px;
-}
-
-/* 导航栏下拉菜单 上标题*/
-.nav-c-bottom .nav-flags {
-    width: 64px;
-    height: 20px;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    margin-left: -33px;
-    border: 1px solid #ff6b00;
-    color: #ff6b00;
-    font-size: 12px;
-    text-align: center;
-    line-height: 20px;
 }
 
 /*主体模块上标题 新品*/
@@ -296,229 +278,6 @@ div.evaluate {
     height: 75px;
 }
 
-/* 最上面的导航栏*/
-.nav-t {
-    height: 40px;
-}
-
-.nav-t ul li {
-    float: left;
-    height: 40px;
-    line-height: 40px;
-}
-
-.nav-t ul li a {
-    margin: 0 7px;
-    color: #b0b0b0;
-    font-size: 12px;
-}
-
-.nav-t ul li a:hover {
-    color: white;
-}
-
-.nav-t ul li b {
-    font-weight: normal;
-    font-size: 10px;
-    color: #423c37;
-}
-
-.nav-t ul:nth-child(2) {
-    float: right;
-}
-
-.nav-t .last {
-    margin-left: 25px;
-    position: relative;
-}
-
-.nav-t .last a {
-    height: 40px;
-    margin: 0;
-    display: block;
-    text-align: center;
-    width: 120px;
-    background-color: #424242;
-}
-
-.nav-t .last a i {
-    margin-right: 5px;
-}
-
-.nav-t .last a:hover {
-    background-color: #fff;
-    color: #ff6b00;
-}
-
-.nav-t .last:hover .shopcar {
-    height: 97px;
-    z-index: 999;
-}
-
-.last .shopcar {
-    font-size: 12px;
-    height: 0;
-    width: 316px;
-    background-color: #fff;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    transition: .3s;
-    overflow: hidden;
-    line-height: 97px;
-    text-align: center;
-}
-
-/*----中间的导航栏------*/
-.nav-nav {
-    position: relative;
-}
-
-.nav-c {
-    height: 100px;
-    overflow: visible;
-}
-
-.nav-c>a {
-    float: left;
-    margin-top: 22px;
-    margin-right: 189px;
-}
-/* .nav-c>a:hover {
-    background: url(../image/index/mi-home.png);
-} */
-
-.nav-c .serch {
-    width: 294px;
-    height: 48px;
-    border: 1px solid #b0b0b0;
-    float: right;
-    margin-top: 25px;
-}
-
-.nav-c .serch input[type=text] {
-    width: 243px;
-    height: 48px;
-    outline: 0;
-    border-right: 1px solid #b0b0b0;
-    text-indent: 2em;
-}
-
-.nav-c .serch div {
-    width: 50px;
-    height: 48px;
-    float: right;
-    text-align: center;
-}
-
-.nav-c .serch div a {
-    display: block;
-    width: 50px;
-    height: 48px;
-    line-height: 48px;
-    color: #616161;
-
-}
-
-.nav-c .serch div a i {
-    font-size: 20px;
-}
-
-.nav-c .serch div a:hover {
-    background-color: #FF6b00;
-    color: white;
-}
-
-.nav-c>ul>li>a {
-    display: block;
-    line-height: 100px;
-    float: left;
-    margin-right: 20px;
-}
-
-.text {
-    color: #333;
-    font-size: 16px;
-}
-
-a.text:hover {
-    color: #ff6b00;
-}
-
-/*导航栏下拉菜单*/
-.nav-c ul li:hover .nav-c-bottom {
-    border-top: 1px solid #e0e0e0;
-    height: 230px;
-}
-
-div.nav-c-bottom {
-    width: 100%;
-    height: 0;
-    position: absolute;
-    background-color: #fff;
-    z-index: 1;
-    overflow: hidden;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-    transition: height .3s .1s;
-    top: 100px;
-    left: 0px;
-}
-
-.nav-c-bottom div {
-    width: 1226px;
-    height: 230px;
-    margin: 0 auto;
-}
-
-.nav-c-bottom>div ul li {
-    margin: 0;
-    width: 204px;
-    height: 201px;
-    float: left;
-    background-color: #fff;
-    position: relative;
-    text-align: center;
-    font-size: 12px;
-}
-
-.price {
-    color: #ff6b00;
-}
-
-p.price {
-    margin-top: 5px;
-    font-size: 12px;
-}
-
-p.nav-title {
-    color: #494949;
-    margin-top: 10px;
-}
-
-a.nav-list {
-    display: block;
-    color: #333;
-    width: 180px;
-    height: 140px;
-    text-align: center;
-    font-size: 12px;
-    margin: 35px 12px 0;
-}
-
-.nav-c-bottom>div>ul li:nth-child(n+2)::before {
-    position: absolute;
-    left: 0;
-    top: 35px;
-    z-index: 1;
-    width: 1px;
-    height: 100px;
-    content: "";
-    background-color: #e0e0e0;
-}
-
-/*-------END-------*/
-
 /*---轮播图导航栏----*/
 .nav-b {
     height: 460px;
@@ -584,7 +343,7 @@ a.nav-list {
     left: 0;
     top: 0;
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.7s;
 }
 .consoule li.show {
     opacity: 1;
@@ -593,117 +352,14 @@ a.nav-list {
     width: 1226px;
     height: 460px;
 }
-
-.nav-b .rotate-r {
+/* 轮播图s侧边栏 */
+.nav-b .allshop-nav {
     width: 233px;
     height: 460px;
     background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
     top: 0;
     left: 0;
-}
-
-.rotate-r ul {
-    margin-top: 20px;
-}
-.rotate-r i {
-    font: 14px;
-}
-
-.rotate-r>ul>li>a {
-    display: block;
-    width: 203px;
-    line-height: 42px;
-    color: #eaeaea;
-    font-family: "微软雅黑";
-    padding-left: 30px;
-    font-size: 14px;
-}
-
-.rotate-r ul {
-    position: relative;
-}
-
-.rotate-r ul li:hover .nav-aside {
-    border: 1px solid #b0b0b0;
-    width: 993px;
-    z-index: 1;
-    border-left: 0;
-}
-
-.rotate-r ul li:nth-child(3):hover .nav-aside {
-    width: 496px;
-}
-
-.rotate-r ul li:nth-child(4):hover .nav-aside {
-    width: 744px;
-}
-
-.rotate-r ul li:nth-child(5):hover .nav-aside {
-    width: 496px;
-}
-
-.rotate-r ul li:nth-child(6):hover .nav-aside {
-    width: 496px;
-}
-
-.rotate-r ul li:nth-child(7):hover .nav-aside {
-    width: 744px;
-}
-
-.rotate-r ul li:nth-child(8):hover .nav-aside {
-    width: 744px;
-}
-
-.rotate-r ul li:nth-child(9):hover .nav-aside {
-    width: 496px;
-}
-
-div.nav-aside {
-    width: 0;
-    height: 460px;
-    background-color: #fff;
-    position: absolute;
-    top: -20px;
-    left: 233px;
-    overflow: hidden;
-    /*transition: width 0.3s;*/
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
-}
-
-.nav-aside>ul {
-    margin: 0;
-    width: 248px;
-    height: 460px;
-    float: left;
-}
-
-.nav-aside-nav img {
-    vertical-align: middle;
-    margin-right: 15px;
-}
-
-a.nav-aside-nav {
-    padding: 18px;
-    display: block;
-    width: 212px;
-    height: 40px;
-    color: #929292;
-    font-size: 12px;
-}
-
-a.nav-aside-nav:hover {
-    color: #ff6b00;
-}
-
-.rotate-r>ul>li:hover {
-    background-color: #ff6721;
-}
-
-.rotate-r>ul>li i {
-    float: right;
-    margin-right: 23px;
-    font-size: 12px;
 }
 
 .nav-b .rotate-b {
@@ -1476,165 +1132,10 @@ p.video-font:hover {
     height: 20px;
     border: 2px solid #fff;
     border-radius: 12px;
-
 }
 
 .video-item i {
     font-size: 12px;
     line-height: 20px;
     color: #F5F5F5;
-}
-
-/*----页面底部----*/
-.tfoot {
-    height: 500px;
-    margin-top: 60px;
-}
-
-.tfoot-top {
-    height: 79px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.tfoot-top ul li {
-    float: left;
-    margin: 0 45px;
-}
-
-.tfoot-top ul li a {
-    line-height: 79px;
-    color: #616161;
-    font-size: 16px;
-}
-
-.tfoot-top ul li a:hover {
-    color: #FF6B00;
-}
-
-.tfoot-top ul li i {
-    font-size: 25px;
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
-.tfoot-center {
-    height: 239px;
-    background-color: #fff;
-}
-
-.tfoot-center div {
-    width: 251px;
-    height: 112px;
-    float: right;
-    margin-top: 40px;
-    border-left: 1px solid #e0e0e0;
-    text-align: center;
-}
-
-.tfoot-center div p:first-child {
-    color: #ff6721;
-    font-size: 20px;
-    margin-bottom: 12px;
-}
-
-.tfoot-center div p:nth-child(2) {
-    font-size: 12px;
-    margin-bottom: 19px;
-    color: #616161;
-}
-
-.tfoot-center div a {
-    display: block;
-    width: 118px;
-    border: 1px solid #ff6b00;
-    margin: 0 auto;
-    color: #ff6b00;
-    font-size: 12px;
-    line-height: 28px;
-}
-
-.tfoot-center div a:hover {
-    color: #fff;
-    background-color: #ff6b00;
-}
-
-.tfoot-center div i {
-    font-size: 10px;
-    margin-right: 3px;
-}
-
-.tfoot-center ul {
-    margin-top: 40px;
-}
-
-.tfoot-center ul li {
-    float: left;
-    width: 160px;
-    height: 192px;
-}
-
-.tfoot-center ul li p {
-    font-size: 18px;
-    color: #424242;
-    margin-bottom: 32px;
-}
-
-.tfoot-center ul li a {
-    display: block;
-    color: #757575;
-    font-size: 14px;
-    margin-bottom: 17px;
-}
-
-.tfoot-center ul li a:hover {
-    color: #ff6b00;
-}
-
-.tfoot-bottom {
-    height: 180px;
-    background-color: #fafafa;
-}
-
-.footer {
-    width: 1226px;
-    margin: 0 auto;
-    height: 115px;
-}
-
-.footer-img {
-    width: 55px;
-    height: 55px;
-    float: left;
-    margin-right: 10px;
-}
-
-.footer-text {
-    float: left;
-}
-
-.footer-text>ul {
-    height: 20px;
-}
-
-.footer-text>ul li {
-    float: left;
-    height: 10px;
-}
-
-.footer-text a {
-    margin: 0 7px;
-    color: #757575;
-    font-size: 12px;
-}
-
-.footer-text>ul>li b {
-    font-weight: normal;
-    font-size: 10px;
-    color: #b0b0b0;
-}
-
-.foot-title {
-    height: 20px;
-    color: #b0b0b0;
-    font-size: 12px;
 }
