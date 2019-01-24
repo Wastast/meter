@@ -23,7 +23,7 @@ body {
 }
 
 /*------清除浮动特性*/
-.clearfix::befroe,
+.clearfix::before,
 .clearfix::after {
     content: '';
     display: table;
@@ -38,8 +38,41 @@ body {
 }
 
 /* header 顶部 */
+/* 小米logo变换 */
+div.change {
+    width: 55px;
+    height: 55px;
+    float: left;
+    overflow: hidden;
+    margin: 22px 89px 0 0;
+  }
+  .change a {
+    display: block;
+    width: 110px;
+    height: 55px;
+    background-color: #ff6700;
+    margin-left: -55px;
+    transition: 0.15s linear;
+  }
+  .change a::before {
+    content: " ";
+    float: right;
+    width: 55px;
+    height: 55px;
+    background: url('http://127.0.0.1:3000/phone/mi-logo.png') no-repeat 50% 50%;
+  }
+  .change a::after {
+    float: left;
+    content: " ";
+    width: 55px;
+    height: 55px;
+    background: url('http://127.0.0.1:3000/phone/mi-home.png') no-repeat 50% 50%;
+  }
+  .change a:hover {
+    margin-left: 0px;
+  }
 /* 最上面的导航栏*/
-header {
+.nav-header {
     height: 40px;
     background-color: #333333;
 }
@@ -70,12 +103,9 @@ header {
     color: #423c37;
 }
 
-.nav-t ul:nth-child(2) {
-    float: right;
-}
-
 .nav-t .last {
-    margin-left: 25px;
+    float: right;
+    /* margin-left: 25px; */
     position: relative;
 }
 
@@ -86,6 +116,9 @@ header {
     text-align: center;
     width: 120px;
     background-color: #424242;
+    color: #b0b0b0;
+    font-size: 12px;
+    line-height: 40px;
 }
 
 .nav-t .last a i {
@@ -98,7 +131,8 @@ header {
 }
 
 .nav-t .last:hover .shopcar {
-    height: 97px;
+    /* height: 97px; */
+    height: auto;
     z-index: 999;
 }
 
@@ -111,12 +145,122 @@ header {
     top: 40px;
     right: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    transition: .3s;
+    transition: all .3s;
     overflow: hidden;
     line-height: 97px;
     text-align: center;
 }
+.shopcar .car-default {
+    width: 316px;
+    height: 97px;
+}
+.shopcar .shop-list {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.shopcar .shop-list li dd {
+    display: block;
+    float: left;
+}
+.shopcar .shop-list li {
+    position: relative;
+    margin: 12px 0;
+    width: 100%;
+    height: 79px;
+    float: left;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+}
+.shopcar .shop-list .car-img {
+    margin-top: 12px;
+}
+.shopcar .shop-list .shop-name {
+    text-align: left;
+    line-height: 80px;
+    margin-left: 15px;
+    width: 141px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.shopcar .shop-list .s-price {
+    /* margin-right: 15px; */
+    float: right;
+    position: absolute;
+    right: 0;
 
+}
+.shopcar .shop-list .s-c-del {
+    font-size:12px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(51, 51, 51, 0.3);
+    cursor: pointer;
+}
+.index-login-box {
+    width: 270px;
+    height: 40px;
+    float: right;
+    position: relative;
+    text-align: center;
+}
+
+.index-login-box .index-user-info a {
+    display: inline-block;
+    width: 120px;
+    line-height: 40px;
+    font-size: 12px;
+    color: #b0b0b0;
+}
+.index-login-box .index-user-info a:hover {
+    color:  #ff6b00;
+    background-color: #fff;
+}
+
+.index-user-info {
+    float: left;
+    width: 120px;
+    height: 40px;
+}
+
+.not-login {
+    float: right;
+    margin-right:25px;
+}
+.index-user-info:hover .info-down{
+    height: 150px;
+}
+.info-down {
+    padding: 7px 0;
+    width: 120px;
+    height: 0px;
+    position: absolute;
+    top:40px;
+    left: 0;
+    background-color: #fff;
+    z-index: 999;
+    overflow: hidden;
+    transition: 0.3s linear;
+}
+.index-user-info .info-down li {
+    width: 120px;
+    height: 30px;
+}
+
+.index-user-info .info-down  a {
+    margin:0;
+    color: #424242;
+    display: block;
+    width: 120px;
+    line-height: 30px;
+    text-align: center;
+}
+.index-user-info .info-down li a:hover {
+    color: #ff6700;
+    background-color: rgba(51, 51, 51, 0.1);
+}
 /*----下拉导航栏------*/
 /* 导航栏下拉菜单 上标题*/
 .nav-c-bottom .nav-flags {
@@ -193,13 +337,6 @@ header {
     color: white;
 }
 
-.nav-c>ul>li>a {
-    display: block;
-    line-height: 100px;
-    float: left;
-    margin-right: 20px;
-}
-
 .text {
     color: #333;
     font-size: 16px;
@@ -210,31 +347,38 @@ a.text:hover {
 }
 
 /*导航栏下拉菜单*/
-.nav-c ul li:hover .nav-c-bottom {
+/* .nav-c ul li:hover .nav-c-bottom {
     border-top: 1px solid #e0e0e0;
     height: 230px;
-}
-
-div.nav-c-bottom {
+} */
+.nav-menu-bar {
     width: 100%;
-    height: 0;
-    position: absolute;
+    position:absolute;
+    top:100px;
+    left:0;
+    height: 0px;
     background-color: #fff;
-    z-index: 1;
-    overflow: hidden;
+    transition: 0.3s linear 0.2s;
+    /* border-top: 1px solid rgba(51,51,51,0); */
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-    transition: height .3s 0.1s;
-    top: 100px;
-    left: 0px;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 1;
+}
+.menu-bar-box ul{
+    display: none;
+}
+ul.m-s-show {
+    display: block;
 }
 
-.nav-c-bottom div {
+div.menu-bar-box {
     width: 1226px;
     height: 230px;
     margin: 0 auto;
 }
 
-.nav-c-bottom>div ul li {
+.menu-bar-box ul li {
     margin: 0;
     width: 204px;
     height: 201px;
@@ -245,11 +389,21 @@ div.nav-c-bottom {
     font-size: 12px;
 }
 
+.m-b-title a {
+    line-height: 100px;
+    float: left;
+    margin-right: 20px;
+}
+
 .price {
     color: #ff6b00;
 }
 
 p.price {
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    transform: translateX(50%);
     margin-top: 5px;
     font-size: 12px;
 }
@@ -269,7 +423,7 @@ a.nav-list {
     margin: 35px 12px 0;
 }
 
-.nav-c-bottom>div>ul li:nth-child(n+2)::before {
+.menu-bar-box ul li:nth-child(n+2)::before {
     position: absolute;
     left: 0;
     top: 35px;

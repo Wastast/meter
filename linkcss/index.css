@@ -5,17 +5,10 @@ tbody {
 }
 
 /*定义通用边框*/
-
-
 main {
     height: 6936px;
     background-color: #fafafa;
     background-attachment: fixed;
-}
-
-header {
-    height: 40px;
-    background-color: #333333;
 }
 
 .banner-one {
@@ -83,12 +76,6 @@ div.row {
     text-align: center;
     box-sizing: border-box;
 }
-
-.item-l img {
-    width: 234px;
-    height: 300px;
-}
-
 /*主体模块商品的阴影*/
 .li-shadow {
     transition: all .2s linear;
@@ -136,17 +123,15 @@ li.last {
     margin: 0 auto 18px;
 }
 
-.shop-img img {
-    width: 160px;
-    height: 160px;
-}
-
 /*标题统一*/
 .shop-title {
     color: #333;
     font-size: 14px;
     font-weight: 400;
     margin: 0 10px 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .shop-title a {
@@ -266,14 +251,26 @@ div.picture {
 /*商品中的评价部分*/
 div.evaluate {
     position: absolute;
-    width: 235px;
+    width: 175px;
     height: 0px;
     bottom: 0;
     background-color: #ff6b00;
     overflow: hidden;
     transition: height .3s;
+    padding: 0 30px;
+    text-align:left;
 }
-
+.evaluate a {
+    display: block;
+    color: #fff;
+    margin-top: 15px;
+    font-size: 12px;
+    height: 30px;
+}
+.evaluate span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+}
 .item:hover .evaluate {
     height: 75px;
 }
@@ -343,7 +340,7 @@ div.evaluate {
     left: 0;
     top: 0;
     opacity: 0;
-    transition: 0.7s;
+    transition: 1s;
 }
 .consoule li.show {
     opacity: 1;
@@ -759,8 +756,6 @@ div.clock {
 
 .banner-flash-p>ul>li img {
     margin-top: 40px;
-    width: 150px;
-    height: 150px;
     margin-bottom: 22px;
 }
 
@@ -822,11 +817,6 @@ div.clock {
     text-align: center;
 }
 
-.recommend-item dt img {
-    width: 140px;
-    height: 140px;
-}
-
 dd.dd-title {
     margin-bottom: 10px;
     height: 18px;
@@ -851,7 +841,19 @@ dd.dd-rank {
     text-align: center;
 }
 
-
+.shop-change{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 400;
+    font-size: 16px;
+}
+.shop-change a {
+    color: #333;
+}
+.shop-change a:hover {
+    color: #ff6700;
+}
 /*----热评商品----*/
 .hotshop {
     height: 420px;
@@ -861,11 +863,6 @@ dd.dd-rank {
     width: 296px;
     height: 220px;
     margin-bottom: 32px;
-}
-
-.hotshop-img img {
-    width: 296px;
-    height: 220px;
 }
 
 .hotshop-title {

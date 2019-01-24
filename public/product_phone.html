@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="http://127.0.0.1:3000/base.css">
+    <link rel="stylesheet" href="http://127.0.0.1:3000/iconfont.css">
+    <link rel="stylesheet" href="http://127.0.0.1:3000/phone.css">
+    <title>小米手机/小米平板 - 小米商城</title>
+</head>
+
+<body>
+    <header>
+        <div class="nav-header">
+            <div class="nav-t currency ">
+                <ul>
+                    <li><a href="http://127.0.0.1:3000/index.html">小米商城</a><b>|</b></li>
+                    <li><a href="javascript:;">MIUI</a><b>|</b></li>
+                    <li><a href="javascript:;">loT</a><b>|</b></li>
+                    <li><a href="javascript:;">云服务</a><b>|</b></li>
+                    <li><a href="javascript:;">金融</a><b>|</b></li>
+                    <li><a href="javascript:;">有品</a><b>|</b></li>
+                    <li><a href="javascript:;">小爱开放平台</a><b>|</b></li>
+                    <li><a href="javascript:;">政企服务</a><b>|</b></li>
+                    <li><a href="javascript:;">下载app</a><b>|</b></li>
+                    <li><a href="javascript:;">Select Region</a></li>
+                </ul>
+                <div class="last" data-shopcar="last">
+                    <a href="http://127.0.0.1:3000/shopcar.html"><i class="iconfont icon-gouwuche"></i>购物车(<span data-shop="count">0</span>)</a>
+                    <div class="shopcar">
+                        <!-- <p class="car-default">购物车中还没有商品,赶紧选购把!</p> -->
+                        <ul class="shop-list" data-shop='list'>
+                            <!-- <li><dl>
+                                <dt>
+                                    <dd class="car-img"><img src="http://127.0.0.1:3000/index/mix3-80.png" width="60px" height="60px"></dd>
+                                    <dd class="shop-name">
+                                        <span>红米6A 全网通版</span>
+                                    </dd>
+                                    <dd class="s-price">
+                                        <span>599元</span>
+                                    </dd>
+                                </dt>
+                                <span class="s-c-del">X</span>
+                            </dl></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="not-login"  data-login="false" style="display:none;">
+                    <ul>
+                        <li><a href="http://127.0.0.1:3000/user_login.html" title="">登陆</a><b>|</b></li>
+                        <li><a href="http://127.0.0.1:3000/user_register.html">注册</a><b>|</b></li>
+                        <li><a href="javascript:;" title="">消息通知</a></li>
+                    </ul>
+                </div>
+                <div class="index-login-box"  data-login="true" style="display:none;">
+                    <div class="index-user-info">
+                        <a href="javascript:;" data-user="name">用户名称</a>
+                        <ul class="info-down">
+                            <li>
+                                <a href="http://127.0.0.1:3000/personal.html">个人中心</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">评价晒单</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">我的喜欢</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1:3000/user_update.html">小米账户</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">退出登录</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">消息通知</a><b>|</b>
+                        </li>
+                        <li>
+                            <a href="javascript:;">我的订单</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 中间的导航栏 -->
+    <section class="nav-nav">
+            <div class="nav-c currency clearfix">
+                <div class="serch">
+                    <input type="text" placeholder="请输入" data-serch="box">
+                    <div><a href="javascript:;" data-serch="on"><i class="iconfont icon-sousuo1"></i></a></div>
+                </div>
+                <div class="change">
+                    <a href="http://127.0.0.1:3000/index.html" target="blank" title="小米官网">
+                    </a>
+                </div>
+                <ul class="m-b-title">
+                    <li><a href="http://127.0.0.1:3000/product_phone.html" class="text">小米手机</a></li>
+
+                    <li><a href="javascript:;" class="text">红米</a></li>
+
+                    <li><a href="javascript:;" class="text">电视</a></li>
+
+                    <li><a href="javascript:;" class="text">笔记本</a></li>
+
+                    <li><a href="javascript:;" class="text">家电</a></li>
+
+                    <li><a href="javascript:;" class="text">新品</a></li>
+
+                    <li><a href="javascript:;" class="text">路由器</a></li>
+
+                    <li><a href="javascript:;" class="text">智能硬件</a></li>
+
+                    <li><a href="javascript:;" class="text">服务</a></li>
+                    <li><a href="javascript:;" class="text">社区</a></li>
+                </ul>
+                <div class="nav-menu-bar">
+                    <div class="menu-bar-box">
+                        <ul class="m-s-show">
+                        </ul>
+                        <ul></ul>
+                        <ul></ul>
+                        <ul></ul>
+                        <ul></ul>
+                        <ul></ul>
+                        <ul></ul>
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <div class="tbody">
+        <!-- 手机轮播图 -->
+        <section>
+            <div class="phone-round">
+                <div class="round-img" data-rotate="img">
+                    <a href="javascript:;" class='arrow-left' data-arrow="arrow-left">
+                    </a>
+                    <a href="javascript:;" class='arrow-right' data-arrow="arrow-right">
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- 明星产品 -->
+        <section>
+            <div class="currency title">
+                <h2>明星产品</h2>
+            </div>
+            <!-- 手机版块第一个商品 -->
+            <div class="only">
+                <div class="phone-cell li-shadow">
+                    <div class="cell-img">
+                        <a href="http://127.0.0.1:3000/mphone6a.html">
+                            <img data-lazy="http://127.0.0.1:3000/phone/3365ae54ebf14a33c3fc2076ffe5a8c4.jpg" width="854px" height="434px">
+                        </a>
+                    </div>
+                    <div class="cell-desc">
+                        <h2 class="cell-title">
+                            <a href="javascript:;">红米6A</a>
+                        </h2>
+                        <p class="phone-desc cell-sp">好看好用不贵</p>
+
+                        <p class="cell-price">549<span class="cell-price-sp">元起</span></p>
+
+                        <p class="cell-link"><a href="http://127.0.0.1:3000/mphone6a.html">了解产品 > </a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- 后续商品 -->
+            <div class="phone-currency phone-all">
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/24b7f3c26569ea91b68551f32109dcb1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">小米8</a></h3>
+                        <p class="phone-desc">全球首款双频GPS, 晓龙845</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>2299</strong>元起
+                                <span class="price-del">2699元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/0741bc542844bf3dd4b51a794b559bc9.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">小米8 SE</a></h3>
+                        <p class="phone-desc">三星 AMOLED 全面屏</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>1699</strong>元起
+                                <span class="price-del">1999元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 第二列 -->
+            <div class="phone-currency phone-all">
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/6d0aab16e4264a97f615ba3041d71b6c.jpg">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">红米6</a></h3>
+                        <p class="phone-desc">小屏高性能的双摄手机</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>729</strong>元起
+                                <span class="price-del">799元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/b8133772061204a88bc334001cd69b57.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">小米8 青春版 </a></h3>
+                        <p class="phone-desc">潮流镜面渐变色，2400万自拍旗舰</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>1399</strong>元起
+                                <span class="price-del">1599元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 第三列 -->
+            <div class="phone-currency phone-all">
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/af467a53f1e050476c5936262ffc47ae.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">黑鲨游戏手机 Helo</a></h3>
+                        <p class="phone-desc">双液冷， 更能打</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>3199</strong>元起
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/d5aa5040e63a4ce8ab8db933ad31c8b3.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">小米MIX 2S</a></h3>
+                        <p class="phone-desc">陶瓷机身 手机中的艺术品</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>2499</strong>元起
+                                <span class="price-del">3299元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 小米手机 -->
+        <section>
+            <div class="currency title">
+                <h2>小米手机</h2>
+            </div>
+            <!-- 第一列 -->
+            <div class="phone-currency phone-all">
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/c8d3ef9b6d884dcd62ef9b590c6bed98.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">小米8 青春版</a></h3>
+                        <p class="phone-desc">潮流镜面渐变色， 自拍旗舰</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>1399</strong>元起
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/8f158600a0dabc7b8d0b863663ed40f1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">小米MIX 3</a></h3>
+                        <p class="phone-desc">磁动力滑盖全面屏</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>3299</strong>元起
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 第二列 -->
+            <div class="phone-currency phone-all">
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/24b7f3c26569ea91b68551f32109dcb1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">小米8</a></h3>
+                        <p class="phone-desc">全球首款双频GPS，骁龙845</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>2299</strong>元起
+                                <span class="price-del">2699元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/0741bc542844bf3dd4b51a794b559bc9.jpg">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">小米8 SE</a></h3>
+                        <p class="phone-desc">三星 AMOLED 全面屏</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>1699</strong>元起
+                                <span class="price-del">1999元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 第三列 -->
+            <div class="phone-currency phone-all">
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/f3213f9d41d3441f8af5c7b7105e26f9.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">小米6X</a></h3>
+                        <p class="phone-desc">轻薄美观的拍照手机</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>1199</strong>元起
+                                <span class="price-del">1599元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/d5aa5040e63a4ce8ab8db933ad31c8b3.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">小米MIX 2S</a></h3>
+                        <p class="phone-desc">陶瓷机身 手机中的艺术品</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>2499</strong>元起
+                                <span class="price-del">3299元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 红米手机系列 -->
+        <section>
+            <div class="currency title">
+                <h2>红米手机</h2>
+            </div>
+            <!-- 第一列 -->
+            <div class="phone-currency phone-all">
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/6d0aab16e4264a97f615ba3041d71b6c.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">红米6</a></h3>
+                        <p class="phone-desc">小屏幕高性能的双摄手机</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>729</strong>元起
+                                <span class="price-del">799元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/3365ae54ebf14a33c3fc2076ffe5a8c4.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">红米6A</a></h3>
+                        <p class="phone-desc">好看好用不贵</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>549</strong>元起
+                                <span class="price-del">599元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 第二列 -->
+            <div class="phone-currency phone-all">
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img data-lazy="http://127.0.0.1:3000/phone/eb0fb45f529c1a988a506eaa2ea9ef56.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">红米Note 5</a></h3>
+                        <p class="phone-desc">红米国民品质， 拍照专家</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>839</strong>元起
+                                <span class="price-del">1099元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phone-item li-shadow">
+                    <div class="item-img">
+                        <a href="javascript:;">
+                            <img src="http://127.0.0.1:3000/phone/46f09a8cb3597136ea11235783754aee.jpg">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="phone-title"><a href="javascript:;">红米 Pro</a></h3>
+                        <p class="phone-desc">高颜值大电量 红米旗舰</p>
+                        <div class="price">
+                            <p class="phone-price">
+                                <strong>869</strong>元起
+                                <span class="price-del">999元</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <tfoot>
+        <div class="tfoot">
+            <div class="tfoot-top currency">
+                <ul>
+                    <li><a href="javascript:;"><i class="iconfont icon-banshou"></i>预约维修服务</a></li>
+                    <li><a href="javascript:;"><i class="iconfont icon-7tiantuihuan"></i>七天无理由退换</a></li>
+                    <li><a href="javascript:;"><i class="iconfont icon-15tianwuliyoutuihuo"></i>15天免费换货</a></li>
+                    <li><a href="javascript:;"><i class="iconfont icon-liwu"></i>满150元包邮</a></li>
+                    <li><a href="javascript:;"><i class="iconfont icon-dizhi"></i>520余家售后网点</a></li>
+                </ul>
+            </div>
+            <div class="tfoot-center currency">
+                <div>
+                    <p>400-100-5678</p>
+                    <p>周一至周日 8:00-18:00<br>(仅收市话费)</p>
+                    <a href="javascript:;"><i class="iconfont icon-news"></i>联系客服</a>
+                </div>
+                <ul>
+                    <li>
+                        <p>帮助中心</p>
+                        <a href="javascript:;">账户管理</a>
+                        <a href="javascript:;">购物指南</a>
+                        <a href="javascript:;">订单操作</a>
+                    </li>
+                    <li>
+                        <p>服务支持</p>
+                        <a href="javascript:;">售后政策</a>
+                        <a href="javascript:;">自助服务</a>
+                        <a href="javascript:;">相关下载</a>
+                    </li>
+                    <li>
+                        <p>线下门店</p>
+                        <a href="javascript:;">小米之家</a>
+                        <a href="javascript:;">服务网点</a>
+                        <a href="javascript:;">授权体验店</a>
+                    </li>
+                    <li>
+                        <p>关于小米</p>
+                        <a href="javascript:;">了解小米</a>
+                        <a href="javascript:;">加入小米</a>
+                        <a href="javascript:;">投资者关系</a>
+                    </li>
+                    <li>
+                        <p>关注我们</p>
+                        <a href="javascript:;">新浪微博</a>
+                        <a href="javascript:;">官方微信</a>
+                        <a href="javascript:;">联系我们</a>
+                    </li>
+                    <li>
+                        <p>特色服务</p>
+                        <a href="javascript:;">F码通道</a>
+                        <a href="javascript:;">礼物码</a>
+                        <a href="javascript:;">防伪查询</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tfoot-bottom">
+            <div class="footer">
+                <div class="footer-img">
+                    <img data-lazy="http://127.0.0.1:3000/index/miters.png" width="55px" height="55px">
+                </div>
+                <div class="footer-text">
+                    <ul>
+                        <li><a href="javascript:;">小米商城</a><b>|</b></li>
+                        <li><a href="javascript:;">MIUI</a><b>|</b></li>
+                        <li><a href="javascript:;">米家</a><b>|</b></li>
+                        <li><a href="javascript:;">米聊</a><b>|</b></li>
+                        <li><a href="javascript:;">多看</a><b>|</b></li>
+                        <li><a href="javascript:;">游戏</a><b>|</b></li>
+                        <li><a href="javascript:;">路由器</a><b>|</b></li>
+                        <li><a href="javascript:;">米粉卡</a><b>|</b></li>
+                        <li><a href="javascript:;">政企服务</a><b>|</b></li>
+                        <li><a href="javascript:;">小米天猫店</a><b>|</b></li>
+                        <li><a href="javascript:;">隐私政策</a><b>|</b></li>
+                        <li><a href="javascript:;">问题反馈</a><b>|</b></li>
+                        <li><a href="javascript:;">廉正举报</a><b>|</b></li>
+                        <li><a href="javascript:;">诚信合规</a><b>|</b></li>
+                        <li><a href="javascript:;">Select Region</a></li>
+                    </ul>
+                    <p class="foot-title">&copy;mi.com ＃ICP证110507号 京ICP备10046444号 京公网安备11010802020134号
+                        京网文[2017]1530-131号</p>
+                    <p class="foot-title">(京) 网械平台备字 (2018) 第00005号 互联网药品信息服务资格证(京)-非经营性-2014-0090 营业执照 医疗器械公告</p>
+                    <p class="foot-title"> 违法和不良信息举报电话: 185-0130-1238,本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</p>
+                </div>
+
+            </div>
+        </div>
+    </tfoot>
+    <script src="http://127.0.0.1:3000/base.js"></script>
+    <script>
+        // 页面懒加载 ------ start
+        (function(){
+            var lazy = document.querySelectorAll("[data-lazy^='http']");
+            var wHeight = window.innerHeight;
+            var img = [];
+            window.onresize = function(){
+                wHeight = window.innerHeight;
+                loadImg();
+            }
+            window.addEventListener('scroll',function(){
+                loadImg();
+            })
+
+            // 当页面加载时，加载在显示窗口中的图片
+            window.addEventListener('load',function load(){
+                loadImg();
+                window.removeEventListener('load',load);
+            })
+
+            function loadImg(){
+                for(let i=0;i<lazy.length;i++){
+                    img[i] = lazy[i].getBoundingClientRect().top;
+                    if(img[i]+300 > 0 && img[i] < wHeight){
+                        lazy[i].src = lazy[i].dataset.lazy;
+                    }
+                }
+            }
+        })();
+        // 页面懒加载 ------ END
+
+        // 手机页面轮播图------ start
+        (function(){
+            var img = document.querySelector('[data-rotate="img"]');
+            var left = document.querySelector('[data-arrow="arrow-left"]');
+            var right = document.querySelector('[data-arrow="arrow-right"]');
+        })();
+        // 手机页面轮播图------ END
+    </script>
+</body>
+
+</html>

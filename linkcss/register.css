@@ -32,8 +32,11 @@ body {
   margin: 0 auto;
 }
 .input-title {
+  font-size: 18px;
   margin-bottom: 5px;
   font-weight: normal;
+  color: #666;
+  font-weight: bold;
 }
 .country {
   height: 40px;
@@ -79,7 +82,6 @@ body {
   height: 40px;
   line-height: 40px;
   border: 1px solid #e8e8e8;
-  margin-bottom: 30px;
 }
 .area {
   width: 72px;
@@ -90,16 +92,18 @@ body {
   line-height: 40px;
   color: #555;
 }
-input[type="text"]{
+input{
   color: #9d9d9d;
   height: 40px;
   line-height: 40px;
-  width: 241px;
+  width: 316px;
   outline: none;
   float: right;
   padding-left: 14px;
+  font-size: 14px;
 }
 .register-btn {
+  margin-top :25px;
   background-color: #ff6700;
   text-align: center;
   line-height: 40px;

@@ -1,5 +1,156 @@
+.big-img {
+	width: 100%;
+	height: 588px;
+	background: url('http://127.0.0.1:3000/register/fa46051ee1b8eaed37409c00ae4ec616.jpg') no-repeat top center;
+	position: relative;
+	overflow: hidden;
+}
+/* 注册登录页面的头部 */
+.login-logo {
+	width: 1130px;
+	height: 75px;
+	margin: 0 auto;
+}
+.login-logo img {
+	margin-top: 13px;
+}
+/* 登陆框 */
+.login-box {
+	width: 1130px;
+	height: 588px;
+	margin: 0 auto;
+	position: relative;
+}
 .user-login {
 	width: 410px;
 	height: 524px;
-	background-color: red;
+	background-color: #fff;
+	position: absolute;
+	top: 32px;
+	right: 0px;
+}
+.login-style{
+	height: 82px;
+	margin-bottom: 10px;
+}
+.login-title {
+	padding: 26px 0;
+	height: 30px;
+	text-align: center;
+}
+.login-title a {
+	font-size: 18px;
+	color: #333;
+}
+a.on {
+	color: #ff6700;
+}
+.login-style span {
+	margin: 0 30px;
+	font-size: 18px;
+	color: rgba(0,0,0,0.3);
+	font-weight: normal;
+}
+/* 登陆表格 */
+.login-form {
+	height: 226px;
+	text-align: center;
+}
+.prompt{
+	width: 346px;
+	text-align: left;
+	display: inline-block;
+	height: 14px;
+	font-size: 12px;
+	color:red;
+}
+input {
+	width: 330px;
+	height: 46px;
+	border: 1px solid rgba(51,51,51,0.2);
+	outline: none;
+	padding-left: 14px;
+	font-size: 14px;
+	color: rgba(0,0,0,0.8);
+}
+.login-btn {
+	display: block;
+	width: 346px;
+	height: 50px;
+	background-color: #ff6700;
+	color: #fff;
+	margin: 24px auto 10px; 
+	line-height: 50px;
+	font-size: 16px;
+}
+.login-other {
+	margin: 0 auto;
+	width: 346px;
+	height: 19px;
+	text-align: right;
+	position: relative;
+}
+.login-other .left {
+	color: rgba(51,51,51,0.6);
+	font-size: 14px;
+}
+.login-other .right {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #ff6700;
+	text-align: left;
+}
+.other-test{
+	width: 346px;
+	margin: 100px auto 15px;
+}
+.other-test p {
+	color:  rgba(51,51,51,0.4);
+}
+.other-login{
+	width: 346px;
+	height: 35px;
+	margin: 0 auto;
+}
+.other-login ul {
+	margin-left: 50px;
+}
+.other-login li {
+	margin-right:35px;
+	float: left;
+}
+/* 页面尾部 */
+.user-tfoot {
+	height: 50px;
+	width: 1130px;
+	/* background-color:red; */
+	margin:68px auto 0;
+	font-size: 14px;
+	color: rgba(51,51,51,0.7);
+	position: relative;
+}
+.user-tfoot ul {
+	width: 400px;
+	margin: 0 auto;
+}
+.user-tfoot li {
+	float: left;
+}
+.user-tfoot a {
+	color: rgba(51,51,51,0.7);
+}
+.user-tfoot b {
+	font-weight: normal;
+	margin: 0 15px;
+}
+.user-tfoot a:hover {
+	color:rgb(0,0,0);
+}
+.por {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
 }

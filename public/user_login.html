@@ -1,17 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="shortcut icon" href="..//favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<title>小米账号-登陆</title>
+	<link rel="shortcut icon" href="..//favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="http://127.0.0.1:3000/base.css">
 	<link rel="stylesheet" href="http://127.0.0.1:3000/user_login.css">
+	<style>
+	</style>
 </head>
 <body>
-	<div class="user-login">
-		<div class="login-style"></div>
+	<!-- 登录界面上的头 -->
+	<!-- <header> -->
+		<div class="login-logo">
+			<a href="http://127.0.0.1:3000/index.html" target="_self">
+				<img src="http://127.0.0.1:3000/register/login_logo.png" alt="">
+			</a>
+		</div>
+	<!-- </header> -->
+	<div class="big-img">
+		<!-- 登录界面的登录框 -->
+		<div class="login-box">
+				<div class="user-login">
+						<!-- 登录标题 -->
+						<div class="login-style">
+							<div class="login-title">
+									<a href="javascript:;" class="on">账号登录</a>
+									<span>|</span>
+									<a href="javascript:;">扫码登录</a>
+							</div>
+						</div>
+						<!-- 登录文本框 -->
+						<div class="login-form">
+							<input type="text" name="uname"  placeholder="用户名称/手机号码/小米ID">
+							<span class="prompt" style="opacity: 0;">用户名或密码错误，请重新输入</span>
+							<input type="password" name="upwd"  placeholder="密码">
+							<a href="javascript:;" class="login-btn" data-login="btn">登录</a>
+							<div class="login-other">
+								<a href="javascript:;" class="right">手机短信登录/注册</a>
+								<a href="http://127.0.0.1:3000/user_register.html" class="left">立即注册</a>
+							</div>
+						</div>
+						<div class="other-test">
+							<p>---------------------其他方式登录----------------------</p>
+						</div>
+						<div class="other-login">
+							<ul>
+								<li><img src="http://127.0.0.1:3000/register/qqlogin.png" width="35px" height="35px"></li>
+								<li><img src="http://127.0.0.1:3000/register/sinalogin.png" width="35px" height="35px"></li>
+								<li><img src="http://127.0.0.1:3000/register/paylogin.png" width="35px" height="35px"></li>
+								<li><img src="http://127.0.0.1:3000/register/wechatlogin.png" width="35px" height="35px"></li>
+							</ul>
+						</div>
+				</div>
+		</div>
 	</div>
+	<!-- 页面尾部 -->
+	<tfoot>
+		<div class="user-tfoot">
+			<ul>
+				<li><a href="javascript:;">简体</a><b>|</b></li>
+				<li><a href="javascript:;">繁体</a><b>|</b></li>
+				<li><a href="javascript:;">English</a><b>|</b></li>
+				<li><a href="javascript:;">常见问题</a><b>|</b></li>
+				<li><a href="javascript:;">隐私政策</a></li>
+			</ul>
+			<p class="por">小米公司版权所有-京IPC备10046444-京公网安备11010802020134号-京ICP证110507号</p>
+		</div>
+	</tfoot>
+	<script src="http://127.0.0.1:3000/base.js"></script>
+	<script>
+		window.onload = function() {
+			var name = localStorage.getItem('name');
+			if(name){
+				location.href = 'http://127.0.0.1:3000/index.html';
+			}
+		};
+		(function(){
+			var name = document.getElementsByName('uname')[0];
+			var pwd = document.getElementsByName('upwd')[0];
+			var btn = document.querySelector('[data-login="btn"]');
+			btn.addEventListener('click',function login(){
+				ajax({
+					url:'/user/login',
+					type:'post',
+					data: {
+						name:name.value,
+						pwd:pwd.value,
+					},
+					success:function(data){
+						if(data.length>0){
+							localStorage.setItem('name',data[0].user_name);
+							localStorage.setItem('id',data[0].user_id);
+							location.href = 'http://127.0.0.1:3000/index.html';
+						}else {
+							var reg = document.querySelector('.prompt');
+							reg.style.cssText = "opacity:1;";
+						}
+					}
+				});
+			});
+		})();
+	</script>
 </body>
 </html>

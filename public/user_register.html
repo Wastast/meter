@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="..//favicon.ico" type="image/x-icon">
   <title>小米账号-注册</title>
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="http://127.0.0.1:3000/base.css">
   <link rel="stylesheet" href="http://127.0.0.1:3000/register.css">
 </head>
@@ -18,28 +18,94 @@
         <h4>注册小米帐号</h4>
       </div>
       <div class="register-input">
-        <h4 class="input-title">国家/地区</h4>
+        <h4 class="input-title">用户名称</h4>
         <div class="country">
-          <a href="#" class="country_area">
-            <p class="">中国</p>
-          </a>
-          <a href="#" class="down"><span>dd</span></a>
+          <input type="text" name="uname">
         </div>
-        <h4 class="country-bottom">成功注册国家/地区后，不可更改</h4>
-        <h4 class="input-title">手机号码</h4>
+        <h4 class="country-bottom" style="opacity: 0">X</h4>
+        <h4 class="input-title">用户密码</h4>
         <div class="phone-input">
-              <div class="area">
-                <span>+86</span>
-              </div>
-              <input type="text" name="phone"placeholder="请输入手机号码">
+          <input type="password" name="upwd">
         </div>
+        <h4 class="country-bottom" style="opacity: 0">X</h4>
         <div class="register-btn">
-          <a href="#">立即注册</a>
+          <a href="javascript:;">立即注册</a>
         </div>
       </div>
       <div class="treaty">
-          <p>注册账号即标识您统一并愿意遵守小米<a href="#">用户协议</a>和<a href="#">隐私政策</a></p>
+          <p>注册账号即标识您统一并愿意遵守小米<a href="javascript:;">用户协议</a>和<a href="javascript:;">隐私政策</a></p>
       </div>
   </div>
+  <script>
+    (function(){
+      // 获取用户名和密码的input
+      var uname = document.getElementsByName('uname')[0];
+      var upwd = document.getElementsByName('upwd')[0];
+      // 获得点击按钮
+      var btn = document.querySelector('.register-btn>a');
+      // 获取下面的显示文本
+      var text = document.querySelectorAll('.country-bottom');
+
+      // 定义用于验证的变量
+      var rname = null;
+      var rpwd = null;
+
+      // 用户名事件
+      uname.addEventListener("focus",function(){
+        text[0].style.cssText  = "opacity:1;";
+      })
+      uname.addEventListener("blur",function(){
+        var reg = /^((\d)|(\s)|(\W))+/;
+        if(reg.test(uname.value)){
+          text[0].style.cssText  = "color:red";
+          text[0].innerHTML = "不能以非字母和中文的字符开头"
+        }else {
+          text[0].style.cssText  = "color:green";
+          text[0].innerHTML = "该用户名可用";
+          rname=true;
+        }
+      })
+
+      // 用户密码事件
+      upwd.addEventListener('focus',function(){
+        text[1].style.cssText  = "opacity:1;";
+        text[1].innerHTML = "密码不得小于6位";
+      });
+      
+      upwd.addEventListener('blur',function(){
+        var l = upwd.value.length;
+        if(upwd.value==0){
+          text[1].style.cssText  = "color:red;";
+          text[1].innerHTML = "请输入密码";
+        }
+        if( l < 6){
+          text[1].style.cssText  = "color:red;";
+          text[1].innerHTML = "密码要长度大于6的任意字符";
+        }else {
+          text[1].style.cssText  = "color:green;";
+          text[1].innerHTML = "该密码可用";
+          rpwd = true;
+        }
+      });
+
+      // 点击注册后触发该事件
+      btn.addEventListener('click',function post(){
+        if(rname==true && rpwd == true){
+          // 跳转到登陆界面
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4&& xhr.status == 200){
+              var result = xhr.responseText;
+              location.href = "http://127.0.0.1:3000/user_login.html";
+            }
+          }
+          xhr.open('post','/user/register',true);
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          data = 'user_name='+uname.value+'&user_pwd='+upwd.value;
+          xhr.send(data);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

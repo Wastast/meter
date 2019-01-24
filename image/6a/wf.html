@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin:0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    .app {
+      width: 1903px;
+      height: 419px;
+      background-color: red;
+      margin: 100px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .app ul {
+      width: 815%;
+      position: absolute;
+      overflow: hidden;
+      transition: 1s linear;
+    }
+    .app ul li {
+      float: left;
+      list-style: outside none none;
+      position: relative;
+      width: 599.643px;
+      margin-right: 52.0352px;
+    }
+    .app ul li img {
+      width: 100%;
+    }
+    .wf-left,
+    .wf-right {
+      position: absolute;
+      width: 41px;
+      height: 60px;
+      background-color: rgba(51, 51, 51, 0.5);
+    }
+    .wf-left {
+      left: 50px;
+      top:50%;
+    }
+    .wf-right {
+      right: 50px;
+      top:50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <ul class="r-item" style="transform: translate3d(-3910.0692px,0,0)">
+      <!-- 1 -->
+      <li>
+          <img src="./index_gallery_1.jpg" alt="">
+        </li>
+        <li>
+            <img src="./index_gallery_2.jpg" alt="">
+        </li>
+        <li>
+            <img src="./index_gallery_3.jpg" alt="">
+        </li>
+        <li>
+            <img src="./index_gallery_4.jpg" alt="">
+        </li>
+        <li>
+            <img src="./index_gallery_5.jpg" alt="">
+        </li>
+        <li>
+            <img src="./index_gallery_6.jpg" alt="">
+        </li>
+        <!-- 2 -->
+      <li>
+        <img src="./index_gallery_1.jpg" alt="">
+      </li>
+      <li>
+          <img src="./index_gallery_2.jpg" alt="">
+      </li>
+      <li>
+          <img src="./index_gallery_3.jpg" alt="">
+      </li>
+      <li>
+          <img src="./index_gallery_4.jpg" alt="">
+      </li>
+      <li>
+          <img src="./index_gallery_5.jpg" alt="">
+      </li>
+      <li>
+          <img src="./index_gallery_6.jpg" alt="">
+      </li>
+      <!-- 3 -->
+      <li>
+          <img src="./index_gallery_1.jpg" alt="">
+        </li>
+        <li>
+            <img src="./index_gallery_2.jpg" alt="">
+        </li>
+        <li>
+            <img src="./index_gallery_3.jpg" alt="">
+        </li>
+        <li>
+            <img src="./index_gallery_4.jpg" alt="">
+        </li>
+        <li>
+            <img src="./index_gallery_5.jpg" alt="">
+        </li>
+        <li>
+            <img src="./index_gallery_6.jpg" alt="">
+      </li>
+    </ul>
+    <a href="javascript:;" class='wf-left' data-arrow="wf-left">
+    </a>
+    <a href="javascript:;" class='wf-right' data-arrow="wf-right">
+    </a>
+  </div>
+  <script>
+    (function(){
+      var left = document.querySelector('[data-arrow="wf-left"]');
+      var right = document.querySelector('[data-arrow="wf-right"]');
+      var list = document.querySelector('.item');
+      var i = 0;
+      left.onclick= function(){
+        i--;
+        list.style.cssText = `transform: translate3d(${(-651.6782*i)-3910.0692}px, 0px, 0px)`;
+        if(i < 0){
+          i=5;  
+          list.addEventListener('transitionend',function guo(){
+            list.style.cssText = `transform: translate3d(${(-651.6782*5)-3910.0692}px, 0px, 0px);transition:0s;`;
+            list.removeEventListener('transitionend',guo);
+          });
+        }
+      }
+      right.onclick = function(){
+        i++;
+        list.style.cssText = `transform: translate3d(${(-651.6782*i)+-3910.0692}px, 0px, 0px)`;
+        if(i>5){
+          i=0;
+          list.addEventListener('transitionend',function guo(){
+            list.style.cssText = `transform: translate3d(-3910.0692px, 0px, 0px); transition:0s;`;
+            list.removeEventListener('transitionend',guo);
+          });
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

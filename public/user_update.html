@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>小米账号</title>
+  <link rel="stylesheet" href="http://127.0.0.1:3000/base.css">
+  <link rel="stylesheet" href="http://127.0.0.1:3000/iconfont.css">
+  <link rel="stylesheet" href="http://127.0.0.1:3000/user_update.css">
+</head>
+
+<body>
+  <section class="tbody">
+    <div class="u-title">
+      <div class="t-img">
+        <a href="javascript:;">
+          <img src="http://127.0.0.1:3000/update/n-logo.png" alt="">
+        </a>
+        <p class="out">退出</p>
+      </div>
+    </div>
+    <div class="t-sel">
+      <ul>
+        <li class="active">帐号安全
+          <span class="trg" style="display: block"></span>
+        </li>
+        <li>个人信息
+          <span class="trg" style="display: none"></span>
+        </li>
+        <li>绑定授权
+          <span class="trg" style="display: none"></span>
+        </li>
+        <li>小米服务
+          <span class="trg" style="display: none"></span>
+        </li>
+      </ul>
+      <div class="user-box">
+        <div class="b-img">
+          <div class="s-img">
+            <img src="http://127.0.0.1:3000/update/n-avator-bg.png" alt="">
+          </div>
+        </div>
+        <div class="u-info-box">
+          <h4 data-user="name"></h4>
+          <p data-user="id"></p>
+        </div>
+      </div>
+    </div>
+    <!-- 账号安全 -->
+    <div class="up-body a-info" >
+      <!-- 安全等级-->
+      <div class="u-sercity">
+
+      </div>
+      <!-- 修改信息-->
+      <div class="u-pwd">
+        <div class="data-box">
+          <em class="ico-lock"></em>
+          <p class="fo-top">帐号密码</p>
+          <p class="fo-bon">用户保护帐号信息和登录安全</p>
+          <span></span>
+        </div>
+        <a href="javascript:;" class="update">
+          设置
+        </a>
+      </div>
+      <div class="u-eimal" data-user="eamil">
+        <div class="data-box">
+          <em class="ico-email"></em>
+          <p class="fo-top">安全邮箱
+            <!-- <span class="warning"></span>
+            <span class="w-font">未绑定</span> -->
+          </p>
+          <!-- <p class="fo-bon">用户保护帐号信息和登录安全</p> -->
+          <p class="w-info">安全邮箱将可用于登录小米帐号和重置密码，建议立即设置</p>
+        </div>
+        <a href="javascript:;" class="update">
+          绑定
+        </a>
+      </div>
+      <div class="u-phone" data-user="phone">
+        <div class="data-box">
+          <em class="ico-phone"></em>
+          <p class="fo-top">安全手机</p>
+          <p class="w-info">安全手机可以用于重置密码,建议立即设置</p>
+        </div>
+        <a href="javascript:;" class="update">
+          设置
+        </a>
+      </div>
+      <div class="u-matter">
+        <div class="data-box">
+          <em class="ico-qu"></em>
+          <p class="fo-top">密保问题
+            <!-- <span class="warning"></span>
+            <span class="w-font">未绑定</span> -->
+          </p>
+          <!-- <p class="fo-bon">用户保护帐号信息和登录安全</p> -->
+          <p class="w-info">密保问题用于安全验证，建议立即设置</p>
+        </div>
+        <a href="javascript:;" class="update">
+          设置
+        </a>
+      </div>
+    </div>
+    <!-- 个人信息 -->
+    <div class="up-body p-info" style="display: none;">
+      <!-- 用户头像修改 -->
+      <div class="p-img">
+        <div class="na-b-img">
+          <div class="na-s-img">
+            <img src="http://127.0.0.1:3000/update/n-avator-bg.png" alt="">
+          </div>
+          <em class="u-change"></em>
+        </div>
+        <div class="img-link">
+          <a href="javascript:;">设置头像</a>
+        </div>
+      </div>
+      <!-- 用户资料修改 -->
+      <div class="p-data">
+        <div class="f-data">
+          <a href="javascript:;" data-box="user">编辑</a>
+          <h3>基础资料</h3>
+        </div>
+
+        <div class="f-data">
+          <p>
+            <span>名称:&emsp;</span>
+            <span class="value uname" data-user="value"></span>
+          </p>
+        </div>
+
+        <div class="f-data">
+          <p>
+            <span>生日:&emsp;</span>
+            <span class="value uname" data-user="value"></span>
+          </p>
+        </div>
+
+        <div class="f-data">
+          <p>
+            <span>性别:&emsp;</span>
+            <span class="value uname" data-user="value"></span>
+          </p>
+        </div>
+      </div>
+      <div class="p-data">
+        <div class="f-data">
+          <h3>高级设置</h3>
+        </div>
+        <div class="f-data">
+          <a href="javascript:;">管理</a>
+          <p>
+            <span>银行卡</span>
+          </p>
+        </div>
+        <div class="f-data">
+          <p>
+            <span>账号地区:&emsp;</span>
+            <span class="value uname">中国</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- 绑定授权 -->
+    <div class="up-body b-info" style="display: none;">
+      <div class="b-top">
+        <h4>绑定</h4>
+        <span>小米账号绑定的第三方账号，可用于直接登录小米网等网站</span>
+      </div>
+      <div class="there">
+        <dl class="t-box">
+          <dt>
+            <div class="b-chat sina"></div>
+          </dt>
+          <dd>
+            <h3>新浪微博</h3>
+            <div class="b-info-box">
+              <span class="warn-info"></span>
+              <span>未绑定</span>
+            </div>
+            <a href="javascript:;">添加绑定</a>
+          </dd>
+        </dl>
+        <dl class="t-box">
+          <dt>
+            <div class="b-chat qq"></div>
+          </dt>
+          <dd>
+            <h3>QQ</h3>
+            <div class="b-info-box">
+              <span class="warn-info"></span>
+              <span>未绑定</span>
+            </div>
+            <a href="javascript:;">添加绑定</a>
+          </dd>
+        </dl>
+        <dl class="t-box">
+          <dt>
+            <div class="b-chat wechat"></div>
+          </dt>
+          <dd>
+            <h3>微信</h3>
+            <div class="b-info-box">
+              <span class="warn-info"></span>
+              <span>未绑定</span>
+            </div>
+            <a href="javascript:;">添加绑定</a>
+          </dd>
+        </dl>
+      </div>
+      <div class="b-top">
+        <h4>授权</h4>
+        <span>您已经授权以下应用访问您的部分账号信息</span>
+      </div>
+      <div class="b-bom">
+        <p>暂未授权任何应用访问您的账号信息</p>
+      </div>
+    </div>
+    <!-- 小米服务 -->
+    <div class="up-body f-info" style="display: none;">
+      <div class="f-top">
+        <h4>您的账号可以登录一下服务</h4>
+      </div>
+      <ul class="f-item">
+        <li>
+          <dl>
+            <dt>
+              <a href="javascript:;" class="mi"></a>
+            </dt>
+            <dd>
+              <p class="pt-name">小米官网</p>
+              <p class="pt-desc">小米手机，红米手机，小米平板和小米电视官方正品销售网站</p>
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>
+              <a href="javascript:;" class="miui"></a>
+            </dt>
+            <dd>
+              <p class="pt-name">MIUI</p>
+              <p class="pt-desc">发烧友必刷的Android ROM</p>
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>
+              <a href="javascript:;" class="yun"></a>
+            </dt>
+            <dd>
+              <p class="pt-name">云服务</p>
+              <p class="pt-desc">随时随地，管理你的所有设备和数据</p>
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>
+              <a href="javascript:;" class="bi"></a>
+            </dt>
+            <dd>
+              <p class="pt-name">米币中心</p>
+              <p class="pt-desc">轻松安心充值，乐享小米服务</p>
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>
+              <a href="javascript:;" class="app"></a>
+            </dt>
+            <dd>
+              <p class="pt-name">应用商店</p>
+              <p class="pt-desc">发现最新最热最好玩的应用</p>
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>
+              <a href="javascript:;" class="theme"></a>
+            </dt>
+            <dd>
+              <p class="pt-name">主题商店</p>
+              <p class="pt-desc">手机百变换装，从此与众不同</p>
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>
+              <a href="javascript:;" class="read"></a>
+            </dt>
+            <dd>
+              <p class="pt-name">多看阅读</p>
+              <p class="pt-desc">海量畅销电子书免费试读，数百万读者阅读首选</p>
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>
+              <a href="javascript:;" class="liao"></a>
+            </dt>
+            <dd>
+              <p class="pt-name">米聊</p>
+              <p class="pt-desc">轻松社交，米粉乐园</p>
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dt>
+              <a href="javascript:;" class="she"></a>
+            </dt>
+            <dd>
+              <p class="pt-name">小米社区</p>
+              <p class="pt-desc">小米手机官方论坛</p>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+    <tfoot>
+      <div class="user-tfoot">
+        <ul>
+          <li><a href="javascript:;">简体</a><b>|</b></li>
+          <li><a href="javascript:;">繁体</a><b>|</b></li>
+          <li><a href="javascript:;">English</a><b>|</b></li>
+          <li><a href="javascript:;">常见问题</a><b>|</b></li>
+          <li><a href="javascript:;">隐私政策</a></li>
+        </ul>
+        <p class="por">小米公司版权所有-京IPC备10046444-京公网安备11010802020134号-京ICP证110507号</p>
+      </div>
+    </tfoot>
+  </section>
+  <!-- 账号安全 -->
+  <div class="propmt-box" data-box="box">
+    <div class="p-user">
+      <h3>修改密码</h3>
+      <input type="password" name="onepwd" placeholder="请输入新密码">
+      <span class="box-info" data-info="info">输入错误，两次密码输入不一致</span>
+      <input type="password" name="twopwd" placeholder="请确认新密码">
+      <div class="box-btn">
+        <a href="javascript:;" class="p-true" data-true="pwd">确认</a>
+        <a href="javascript:;" class="p-false">取消</a>
+      </div>
+      <a href="javascript:;" class="box-out">X</a>
+    </div>
+  </div>
+  <div class="propmt-box" data-box="box">
+    <div class="p-user">
+      <h3>绑定邮箱</h3>
+      <input type="text" name="eamil" placeholder="请输入qq邮箱账号">
+      <span class="box-info" data-info="info">输入邮箱格式不正确</span>
+      <div class="box-btn">
+        <a href="javascript:;" class="p-true" data-true="pwd">确认</a>
+        <a href="javascript:;" class="p-false">取消</a>
+      </div>
+      <a href="javascript:;" class="box-out">X</a>
+    </div>
+  </div>
+  <div class="propmt-box" data-box="box">
+    <div class="p-user">
+      <h3>设置手机号码</h3>
+      <input type="text" name="phone" placeholder="请输入手机号码">
+      <span class="box-info" data-info="info">手机号码格式错误</span>
+      <div class="box-btn">
+        <a href="javascript:;" class="p-true" data-true="pwd">确认</a>
+        <a href="javascript:;" class="p-false">取消</a>
+      </div>
+      <a href="javascript:;" class="box-out">X</a>
+    </div>
+  </div>
+  <div class="propmt-box" data-box="box">
+    <div class="p-user">
+      <h3>修改密码</h3>
+      <input type="password" name="onepwd" placeholder="请输入新密码">
+      <span class="box-info" data-info="info">输入错误，两次密码输入不一致</span>
+      <input type="password" name="twopwd" placeholder="请确认新密码">
+      <div class="box-btn">
+        <a href="javascript:;" class="p-true" data-true="pwd">确认</a>
+        <a href="javascript:;" class="p-false">取消</a>
+      </div>
+      <a href="javascript:;" class="box-out">X</a>
+    </div>
+  </div>
+  <!-- 个人信息 -->
+  <div class="propmt-box" style="display:none" data-box="box">
+    <div class="p-user">
+      <h3>编辑基础资料</h3>
+      <dl>
+        <dt>
+          <dd class="p-u-title">
+            姓名：
+          </dd>
+          <dd class="p-u-text">
+              <input type="text" name='user_name'> 
+          </dd>
+        </dt>
+        <dt>
+          <dd class="p-u-title">
+            生日：
+          </dd>
+          <dd class="p-u-text">
+            <input type="text" name='user_birthday'> 
+          </dd>
+        </dt>
+        <dt>
+          <dd>
+            <dd>性别：&emsp;</dd>
+            <select name="user_sex">
+              <option value="1">男</option>
+              <option value="0">女</option>
+            </select>
+          </dd>
+        </dt>
+      </dl>
+      <div class="box-btn">
+        <a href="javascript:;" class="p-true" data-true="user">确认</a>
+        <a href="javascript:;" class="p-false">取消</a>
+      </div>
+      <a href="javascript:;" class="box-out">X</a>
+    </div>
+  </div>
+  <script src="http://127.0.0.1:3000/base.js"></script>
+  <script src="http://127.0.0.1:3000/user_update.js"></script>
+  <script>
+    (function(){
+      window.addEventListener('load',function load(){
+        if(!(localStorage.getItem('name'))){
+          window.removeEventListener('load',load);
+          location.href = 'http://127.0.0.1:3000/user_login.html';
+        }
+        window.removeEventListener('load',load);
+      });
+      var out = document.querySelector('.out');
+      out.addEventListener('click',function on(){
+        localStorage.removeItem('name');
+        location.href = 'http://127.0.0.1:3000/user_login.html';
+      });
+    })();
+  </script>
+</body>
+
+</html>

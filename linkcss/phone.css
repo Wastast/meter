@@ -1,37 +1,4 @@
-/* 小米logo变换 */
-div.change {
-  width: 55px;
-  height: 55px;
-  float: left;
-  overflow: hidden;
-  margin: 22px 89px 0 0;
-}
-.change a {
-  display: block;
-  width: 110px;
-  height: 55px;
-  background-color: #ff6700;
-  position: relative;
-  margin-left: -55px;
-  transition: 0.15s linear;
-}
-.change a::before {
-  content: " ";
-  float: right;
-  width: 55px;
-  height: 55px;
-  background: url('../image/phone/mi-logo.png') no-repeat 50% 50%;
-}
-.change a::after {
-  float: left;
-  content: " ";
-  width: 55px;
-  height: 55px;
-  background: url('../image/phone/mi-home.png') no-repeat 50% 50%;
-}
-.change a:hover {
-  margin-left: 0px;
-}
+
 /* ------ENDp------ */
 /* 全部商品导航栏 */
 li.down{
@@ -88,13 +55,45 @@ li.down:hover .rotate-r{
   width: 100%;
   height: 620px;
   overflow: hidden;
+  /* background-image: url(http://127.0.0.1:3000/phone/fa46051ee1b8eaed37409c00ae4ec616.jpg); */
+  background: url(http://127.0.0.1:3000/phone/545a5b5f0cb6cff72c8abc13968a0adf.jpg);
+  background-position: -300px 0;
+  background-size: cover;
+  position: relative;
+  transition: 0.5s;
 }
+.round-img a {
+  /* z-index: 50; */
+  display: block;
+  width: 41px;
+  height: 69px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.round-img .arrow-left {
+  left:20%;
+  background: url(http://127.0.0.1:3000/6a/icon-slides.png) no-repeat -83px 0 ;
+}
+.round-img .arrow-right {
+  background: url(http://127.0.0.1:3000/6a/icon-slides.png) no-repeat -123px 0 ;
+  right:18%;
+}
+.arrow-left:hover {
+  background: url(http://127.0.0.1:3000/6a/icon-slides.png) no-repeat 0 0 ;
+} 
+.arrow-right:hover {
+  background: url(http://127.0.0.1:3000/6a/icon-slides.png) no-repeat -41px 0 ;
+}
+/* .round-img img {
+  margin-left: -300px;
+  width: 100%;
+} */
 /* 手机商品开头部分 */
 .title {
   padding-left: 14px;
   height:68px;
   box-sizing: border-box;
-  /* background-color:red; */
 }
 .title h2 {
   line-height: 68px;
@@ -107,7 +106,6 @@ li.down:hover .rotate-r{
   width: 1240px;
   margin:0 auto;
   height: 434px;
-  /* background-color: red; */
   margin-bottom: 14px;
 }
 .phone-cell {

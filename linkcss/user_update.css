@@ -1,0 +1,556 @@
+.up-body {
+  width: 960px;
+  border: 1px solid rgba(51,51,51,0.1);
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 0 auto;
+  box-sizing:border-box;
+  padding:35px;
+}
+/* 修改界面头部 */
+.u-title {
+  width: 960px;
+  margin: 0 auto;
+}
+.t-img {
+  padding: 50px 0;
+  height: 31px;
+}
+.t-img .out {
+  float: right;
+  cursor: pointer;
+} 
+/* 可以选择的标题 */
+.t-sel {
+  width: 930px;
+  height: 60px;
+  margin: 0 auto;
+  padding-left: 30px;
+  position: relative;
+}
+.t-sel li {
+  float: left;
+  margin-right: 60px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 20.5px 0;
+}
+.t-sel li:hover {
+  color:#ff6700;
+}
+.t-sel .active {
+  color: #ff6700;
+}
+.t-sel li {
+  position: relative;
+}
+.trg {
+  display: block;
+  width: 23px;
+  height: 12px;
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url(http://127.0.0.1:3000/update/n-layout-corner.png);
+}
+.user-box {
+  width: 220px;
+  height: 90px;
+  /* background-color: #000; */
+  position: absolute;
+  top: 0;
+  right: 35px;
+}
+.b-img,
+.na-b-img {
+  display: block;
+  width: 90px;
+  height: 90px;
+  border: 1px solid rgba(51,51,51,0.2);
+  float: right;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+}
+.na-b-img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.na-b-img:hover .u-change {
+  display: block;
+}
+.s-img,
+.na-s-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top:4px;
+  left:4px;
+}
+.u-info-box {
+  width: 120px;
+  text-align: right;
+  padding-top: 16px;
+  float: left;
+}
+/* 页面主体 */
+.tbody {
+  background-color: #f5f5f5;
+}
+.a-info {
+  height: 500px;
+}
+/* 安全等级 */
+.u-sercity{
+  height: 39px;
+  border-bottom: 1px solid rgba(51,51,51,0.2);
+}
+/* 修改信息 */
+.u-pwd,
+.u-eimal,
+.u-phone {
+  height: 105px;
+  border-bottom: 1px solid rgba(51,51,51,0.1);
+  position: relative;
+}
+.u-matter {
+  height: 105px;
+  position: relative;
+}
+.update {
+  display: block;
+  width: 108px;
+  height: 33px;
+  border: 1px solid rgba(51,51,51,0.2);
+  line-height:33px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(0,0,0,0.8);
+}
+.data-box {
+  width: 888px;
+  position: relative;
+  height: 45px;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+.ico-lock,
+.ico-email,
+.ico-phone,
+.ico-qu {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+.ico-lock {
+  background: url(http://127.0.0.1:3000/update/device-icos.png) 0 0 no-repeat;
+}
+.ico-email {
+  background: url(http://127.0.0.1:3000/update/device-icos.png) -40px 0 no-repeat;
+}
+.ico-phone {
+  background: url(http://127.0.0.1:3000/update/device-icos.png) -200px 0 no-repeat;
+}
+.ico-qu {
+  background: url(http://127.0.0.1:3000/update/device-icos.png) -80px 0 no-repeat;
+}
+.data-box .fo-top {
+  position: absolute;
+  top: 0;
+  left: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgba(0,0,0,0.7);
+}
+.warning {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 24px;
+  background: url(http://127.0.0.1:3000/update/n-warning-ico.png) 0 0 no-repeat;
+  font-size: 14px;
+  vertical-align: middle;
+
+}
+.w-font {
+  color:rgb(255,102,0);
+  line-height: 18px;
+  font-size: 14px;
+}
+.w-info {
+  color:rgb(255,102,0);
+}
+.fo-bon {
+  color: rgba(51,51,51,0.7);
+  /* display: none; */
+}
+.w-info,
+.fo-bon {
+  position: absolute;
+  bottom: 0;
+  left: 60px;
+}
+/* 页面尾部 */
+.user-tfoot {
+	height: 50px;
+	width: 1130px;
+	/* background-color:red; */
+	margin:68px auto 0;
+	font-size: 14px;
+	color: rgba(51,51,51,0.7);
+	position: relative;
+}
+.user-tfoot ul {
+	width: 400px;
+	margin: 0 auto;
+}
+.user-tfoot li {
+	float: left;
+}
+.user-tfoot a {
+	color: rgba(51,51,51,0.7);
+}
+.user-tfoot b {
+	font-weight: normal;
+	margin: 0 15px;
+}
+.user-tfoot a:hover {
+	color:rgb(0,0,0);
+}
+.por {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+/* 个人信息界面 */
+.p-info {
+  height: 436px;
+}
+.u-change {
+  display: block;
+  width: 43px;
+  height: 43px;
+  background: url(http://127.0.0.1:3000/update/n-ava-edit.png) 0 0 no-repeat;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  display: none;
+  cursor: pointer;
+}
+.p-img {
+  width: 300px;
+  height: 206px;
+  padding: 80px 20px 0;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+}
+.img-link {
+  width: 260px;
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+}
+.img-link a {
+  color: #4a90e3;
+}
+.p-data {
+  padding-top:15px;
+  width: 588px;
+  /* height: 160px; */
+  float: right;
+}
+.f-data {
+  padding-left:20px;
+  /* width: 570px; */
+  height: 40px;
+}
+.f-data h3 {
+  font-size: 16px;
+  color: #333;
+  line-height: 40px;
+}
+.f-data a {
+  float: right;
+  line-height: 40px;
+  color: #4a90e3;
+}
+.f-data span {
+  line-height: 40px;
+  color: #666;
+}
+/* .f-data .value {
+
+} */
+
+/* 绑定授权 */
+.b-info {
+  height: 436px;
+}
+.b-info p {
+  text-align: center;
+}
+.b-top {
+  height: 40px;
+  border-bottom: 1px solid rgba(51,51,51,0.2);
+}
+.b-top h4 {
+  display: inline-block;
+  color: #333;
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.b-top span {
+  display: inline-block;
+  color: #666;
+  margin-left: 10px;
+}
+.there {
+  padding-top: 27px;
+  height: 130px;
+}
+.t-box {
+  width: 267px;
+  height: 120px;
+  float: left;
+}
+.t-box dd {
+  float: left;
+  width: 169px;
+  height: 82px;
+  padding-left: 10px;
+}
+.t-box h3 {
+  font-size: 16px;
+  color: #333;
+}
+.t-box a {
+  display: block;
+  width: 72px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  border: 1px solid rgba(51,51,51,0.2);
+  color: #333;
+  font-weight: bold;
+}
+.b-info-box {
+  height: 19px;
+  line-height: 19px;
+  margin: 8px 0;
+}
+.b-info-box span {
+  vertical-align: middle;
+  color: #666;
+}
+.b-chat {
+  float: left;
+  width: 80px;
+  height: 80px;
+}
+.sina {
+  background: url(http://127.0.0.1:3000/update/icon_third.png) 0 0 no-repeat;
+}
+.qq {
+  background: url(http://127.0.0.1:3000/update/icon_third.png) -160px 0 no-repeat;
+}
+.wechat {
+  background: url(http://127.0.0.1:3000/update/icon_third.png) -560px 0 no-repeat;
+}
+.warn-info {
+  display:inline-block;
+  width: 19px;
+  height: 19px;
+  margin-right: 5px;
+  /* vertical-align: middle; */
+  background:url(http://127.0.0.1:3000/update/icon_status.png) 0 0 no-repeat;
+}
+.b-bom {
+  padding: 24px;
+  height: 120px;
+}
+.b-bom p {
+  line-height: 120px;
+  color: #666;
+}
+
+/* 小米服务 */
+.f-info {
+  height: 467px;
+  color: #333;
+}
+.f-top{
+  font-size:20px;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid rgba(51,51,51,0.2);
+}
+
+.f-item li {
+  width: 400px;
+  height: 40px;
+  float: left;
+  margin: 30px 40px 0 0;
+}
+.f-item dl {
+  width: 400px;
+}
+.f-item dd{
+  width: 345px;
+  float: left;
+}
+.f-item dd p {
+  line-height: 20px;
+}
+.f-item a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right:15px;
+}
+.mi {
+  background: url(http://127.0.0.1:3000/update/icon_service.png) -160px 0 no-repeat;
+}
+.miui {
+  background: url(http://127.0.0.1:3000/update/icon_service.png) -320px 0 no-repeat;
+}
+.yun {
+  background: url(http://127.0.0.1:3000/update/icon_service.png) -120px 0 no-repeat;
+}
+.bi {
+  background: url(http://127.0.0.1:3000/update/icon_service.png) -280px 0 no-repeat;
+}
+.app {
+  background: url(http://127.0.0.1:3000/update/icon_service.png) -80px 0 no-repeat;
+}
+.theme {
+  background: url(http://127.0.0.1:3000/update/icon_service.png) 0 0 no-repeat;
+}
+.read {
+  background: url(http://127.0.0.1:3000/update/icon_service.png) -240px 0 no-repeat;
+}
+.liao {
+  background: url(http://127.0.0.1:3000/update/icon_service.png) -40px 0 no-repeat;
+}
+.she {
+  background: url(http://127.0.0.1:3000/update/icon_service.png) -200px 0 no-repeat;
+}
+.pt-name {
+  font-weight: bold;
+}
+.pt-desc {
+  color: rgba(51,51,51,0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 弹出信息框 */
+.propmt-box {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(51,51,51,0.3);
+  display: none;
+}
+.p-user {
+  width: 300px;
+  height: 300px;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: relative;
+}
+.p-u-title {
+  width: 50px;
+  line-height: 30px;
+}
+.p-user  dd{
+  display: inline-block;
+  margin-bottom: 15px;
+  
+}
+.p-user .p-u-text {
+  display: inline-block;
+  height: 30px;
+  width: 165px;
+}
+.p-user dl dt dd input {
+  width: 170px;
+}
+.box-out {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: rgba(51,51,51,0.6);
+  font-size: 12px;
+}
+.p-user h3 {
+  height: 40px;
+  line-height: 40px;
+  /* font-weight: normal; */
+  color: rgba(0,0,0,0.7);
+  border-bottom: 1px solid rgba(51,51,51,0.3);
+  margin-bottom: 20px;
+}
+.p-user input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(51,51,51,0.3);
+  outline: none;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+.box-info {
+  display: inline-block;
+  width: 100%;
+  line-height: 25px;
+  opacity: 0;
+  color: red;
+}
+.box-btn {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+}
+.p-false,
+.p-true {
+  width: 100px;
+  height: 40px;
+  display: inline-block;
+  line-height: 40px;
+  text-align: center;
+}
+.p-true {
+  background-color: #ff6700;
+  margin-right:15px;
+  color:#fff
+}
+.p-false {
+  background-color: rgba(51,51,51,0.2);
+  color: rgba(0,0,0,0.8);
+}

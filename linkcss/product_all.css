@@ -1,0 +1,205 @@
+/*每个板块中的列表*/
+.item {
+  width: 234px;
+  height: 320px;
+  margin-left: 14px;
+  margin-bottom: 14px;
+  position: relative;
+  float: left;
+  z-index: 1;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 40px 0 20px 0;
+}
+
+.item-l {
+  width: 234px;
+  height: 300px;
+  margin-bottom: 14px;
+  position: relative;
+  float: left;
+  z-index: 1;
+  text-align: center;
+  box-sizing: border-box;
+}
+.shop-car,
+.shop-like {
+  position: absolute;
+  top: 20px;
+  cursor: pointer;
+}
+.item:hover .s-c-i {
+  opacity: 1;
+}
+.item .s-c-i {
+  font-size: 22px;
+  vertical-align: middle;
+  color: #333;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.shop-car {
+  right: 20px;
+}
+.shop-like {
+  left: 20px;
+}
+/*主体模块商品的阴影*/
+.li-shadow {
+  transition: all .2s linear;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.li-shadow:hover {
+  z-index: 2;
+  transform: translate(0, -3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+li.last {
+  padding: 0;
+  background-color: #fafafa;
+}
+/*主体模块中统一文字*/
+/*图像统一大小*/
+.shop-img {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 18px;
+}
+
+/*标题统一*/
+.shop-title {
+  color: #333;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 10px 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shop-title a {
+  display: block;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*商品描述文字统一*/
+.shop-p-evaluate {
+  color: #b0b0b0;
+  font-size: 12px;
+  margin: 0 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.shop-desc {
+  height: 18px;
+  color: #adadad;
+  font-size: 12px;
+  margin: 0 10px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*商品价格正常显示*/
+.shop-price {
+  color: #ff6b00;
+  margin: 0 10px 10px;
+}
+
+/*商品促销价格显示*/
+span.del {
+  color: #adadad;
+  margin-left: 8px;
+  text-decoration: line-through;
+}
+
+.p li {
+  float: left;
+}
+/*商品中的评价部分*/
+div.evaluate {
+  position: absolute;
+  width: 175px;
+  height: 0px;
+  bottom: 0;
+  background-color: #ff6b00;
+  overflow: hidden;
+  transition: height .3s;
+  padding: 0 30px;
+  text-align:left;
+}
+.evaluate a {
+  display: block;
+  color: #fff;
+  margin-top: 15px;
+  font-size: 12px;
+  height: 30px;
+}
+.evaluate span {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}
+.item:hover .evaluate {
+  height: 75px;
+}
+/* 查询导航栏 */
+.select-nav {
+  height: 40px;
+  background-color: #f5f5f5;
+}
+.select-nav p {
+  padding-left: 115px; 
+  line-height: 40px;
+}
+.select-c {
+  background-color: #fff;
+}
+.select-c .sort {
+  padding:30px 0 30px 115px;
+}
+.sort {
+  line-height: 20px;
+}
+.select-c .sort span {
+  margin-right: 80px;
+  cursor: pointer;
+}
+.select-c .sort span:hover {
+  color: #ff6700;
+}
+.select-c .sort .on {
+  color: #ff6700; 
+} 
+.sort .s-h {
+  display: inline-block;
+  margin-right: 100px;
+}
+/* 查询主体 */
+.body {
+  padding-top: 40px;
+  background-color: #fafafa;
+  padding-bottom: 50px;
+}
+.select-box {
+  background-color: #fafafa;
+  /* height: 1100px; */
+}
+.s-list {
+  padding: 0 115px;  
+  margin-bottom: 100px;
+  /* height: 100px; */
+}
+.not {
+  padding: 100px;
+  text-align: center;
+  display: none;
+}
