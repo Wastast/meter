@@ -34,16 +34,16 @@ header {
 .head .index-login-box {
   margin-top: 35px;
 }
+.index-login-box .index-user-info:hover a {
+  color:  #ff6b00;
+  background-color: #fff;
+}
 .index-login-box .index-user-info a {
   display: inline-block;
   width: 120px;
   line-height: 40px;
   font-size: 12px;
   color: rgba(0,0,0,0.7);
-}
-.index-login-box .index-user-info a:hover {
-  color:  #ff6b00;
-  background-color: #fff;
 }
 .index-login-box>ul>li>a {
   line-height: 40px;

@@ -26,12 +26,12 @@
 //获取用户信息-----start
 (function(){
   if(localStorage){
-    console.log(localStorage.getItem('name'));
+    // console.log(localStorage.getItem('name'));
     ajax({
         url:'/user/userinfo',
         type:'post',
         data:{
-          name:localStorage.getItem('name'),
+          user_name:localStorage.getItem('name'),
         },
         success:function(data){
           update(data[0]);
@@ -44,25 +44,38 @@
         data[key]="";
       }
     }
+    var level = 1;
+    // --------------------------------------------------------
     var value = document.querySelectorAll('[data-user="value"]');
     var uname = document.querySelector('[data-user="name"]');
     var uid = document.querySelector('[data-user="id"]');
     // 获取邮箱和手机文本
     var email = document.querySelector('[data-user="eamil"] .w-info');
     var phone = document.querySelector('[data-user="phone"] .w-info');
+    // 判断数据数据是否为空
     if(data.user_email !=''){
+      level++;
       email.innerHTML = '用于更换密码，更换手机';
       email.style.cssText = 'color:rgba(51,51,51,0.7)';
     }
     if(data.user_phone !=''){
+      level++;
       phone.innerHTML = '安全手机可以用于重置密码或其他安全验证';
       phone.style.cssText = 'color:rgba(51,51,51,0.7)';
     }
+
     value[0].innerHTML = data.user_name;
     value[1].innerHTML = data.user_birthday;
     value[2].innerHTML = data.user_gender=='m'?'男':'女';
     uname.innerHTML = data.user_name;
     uid.innerHTML = data.user_id;
+
+    // 获取安全等级模块
+    var sercity = document.querySelector('[data-user="sercity"]');
+    var line = sercity.querySelector('.line');
+    sercity.querySelector('.safety-score>span').innerHTML = `${level*25}`
+
+    line.style.cssText = `width: ${level*25*7}px;`
   }
 })();
 //获取用户信息-----END
@@ -89,9 +102,10 @@
             phone(text[i],box[i]);
             break;
           case 3:
-            email();
+            question(text[i],box[i]);
             break;
         }
+        window.reload();
       })
     })(i);
   }
@@ -169,6 +183,15 @@
       text.style.cssText = 'opacity:1;'
     }
   }
+  // 绑定密保问题
+  function question(text,box){
+    var que = document.getElementsByName('que')[0];
+    var ans = document.getElementsByName('ans')[0];
+    // var res = /^\d$/;
+    // if(!(res.test(que))){
+    //   console.log(1);
+    // }
+  }
 })();
 // 用户修改信息 ---END
 
@@ -244,3 +267,46 @@
     box[4].style.cssText = "display:block;";
   }
 })();
+
+// 用户更改头像
+(function() {
+  var aventOn = document.querySelector('[data-user="avert"]');
+  // 更换头像盒子
+  var box = document.querySelector('[data-box="avent"]');
+  var sure = box.querySelector('.p-true')
+  var x = box.querySelector('.box-out')
+  var close = box.querySelector('.p-false')
+  // 上传文件的input按钮
+  var input = box.querySelector('input')
+  // input.onchange = function (e) {
+  //   let formData = new FormData();
+  //   formData.append('file',e.target.files[0]);
+  //   var xhr = new XMLHttpRequest()
+  //   xhr.onreadystatechange = function () {
+  //     if(xhr.readyState == 4 && xhr.status == 200) {
+  //       var result = xhr.responseText
+  //       console.log(result)
+  //     }
+  //   }
+  //   xhr.open('post',url,true)
+  //   xhr.setRequestHeader('Content-Type','multipart/form-data')
+  //   xhr.send(formData)
+
+  //   // console.log(e.target.files[0])
+  // }
+  aventOn.addEventListener('click',()=>{
+    box.style.cssText = 'display:block;';
+  })
+  sure.onclick = () => {
+    show()
+  }
+  x.onclick = () => {
+    show()
+  }
+  close.onclick = () => {
+    show()
+  }
+  function show () {
+    box.style.cssText = 'display:none;';
+  }
+})()

@@ -53,36 +53,50 @@
     }
     wf_focu[index].className = 'on';
   }
+  var interval = 1;
   left.onclick= function(){
-    img--;
-    list.style.cssText = `transform: translate3d(${(-651.6782*img)-3910.0692}px, 0px, 0px)`;
-    if(img < 0){
-        img=5;  
-      list.addEventListener('transitionend',function guo(){
-        list.style.cssText = `transform: translate3d(${(-651.6782*5)-3910.0692}px, 0px, 0px);transition:0s;`;
-        list.removeEventListener('transitionend',guo);
-      });
+    if(interval==1){
+        interval=0;
+        img--;
+        list.style.cssText = `transform: translate3d(${(-651.6782*img)-3910.0692}px, 0px, 0px);`;
+        if(img < 0){
+            img=5;
+        list.addEventListener('transitionend',function guo(){
+            list.style.cssText = `transform: translate3d(${(-651.6782*5)-3910.0692}px, 0px, 0px);transition-duration: 0s;`;
+            list.removeEventListener('transitionend',guo);
+        });
+        }
+        focu(img);    
+        setTimeout(function(){
+            interval=1;
+        },1100);
     }
-    focu(img);
   }
   right.onclick = function(){
-    img++;
-    list.style.cssText = `transform: translate3d(${(-651.6782*img)+-3910.0692}px, 0px, 0px)`;
-    if(img>5){
-        img=0;
-      list.addEventListener('transitionend',function guo(){
-        list.style.cssText = `transform: translate3d(-3910.0692px, 0px, 0px);transition:0s;`;
-        list.removeEventListener('transitionend',guo);
-      });
+    if(interval==1){
+        interval=0;
+        img++;
+        right.disabled = false;
+        list.style.cssText = `transform: translate3d(${(-651.6782*img)+-3910.0692}px, 0px, 0px);`;
+        if(img>5){
+            img=0;
+        list.addEventListener('transitionend',function guo(){
+            list.style.cssText = `transform: translate3d(-3910.0692px, 0px, 0px);transition-duration: 0s;`;
+            list.removeEventListener('transitionend',guo);
+        });
+        }
+        focu(img);
+        setTimeout(function(){
+            interval=1;
+        },1100);
     }
-    focu(img);
   }
   for(let i=0;i<wf_focu.length;i++){
       (function(i){
         wf_focu[i].onclick = function(){
         img=i;
         focu(img);
-        list.style.cssText = `transform: translate3d(${(-651.6782*img)+-3910.0692}px, 0px, 0px)`;
+        list.style.cssText = `transform: translate3d(${(-651.6782*img)+-3910.0692}px, 0px, 0px);transition-duration: 1s;`;
       }
       })(i);
   }

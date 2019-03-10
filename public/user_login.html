@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<title>小米账号-登陆</title>
-	<link rel="shortcut icon" href="..//favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="http://127.0.0.1:3000/base.css">
 	<link rel="stylesheet" href="http://127.0.0.1:3000/user_login.css">
 	<style>
@@ -29,14 +28,14 @@
 						<!-- 登录标题 -->
 						<div class="login-style">
 							<div class="login-title">
-									<a href="javascript:;" class="on">账号登录</a>
+									<a href="javascript:;" class="on" data-method="login">账号登录</a>
 									<span>|</span>
-									<a href="javascript:;">扫码登录</a>
+									<a href="javascript:;" data-method="login">小米ID登录</a>
 							</div>
 						</div>
 						<!-- 登录文本框 -->
 						<div class="login-form">
-							<input type="text" name="uname"  placeholder="用户名称/手机号码/小米ID">
+							<input type="text" name="user"  placeholder="用户名称" data-name="name">
 							<span class="prompt" style="opacity: 0;">用户名或密码错误，请重新输入</span>
 							<input type="password" name="upwd"  placeholder="密码">
 							<a href="javascript:;" class="login-btn" data-login="btn">登录</a>
@@ -81,29 +80,78 @@
 			}
 		};
 		(function(){
-			var name = document.getElementsByName('uname')[0];
+			var name = document.querySelector('[data-name="name"]');
 			var pwd = document.getElementsByName('upwd')[0];
 			var btn = document.querySelector('[data-login="btn"]');
-			btn.addEventListener('click',function login(){
-				ajax({
-					url:'/user/login',
-					type:'post',
-					data: {
-						name:name.value,
-						pwd:pwd.value,
-					},
-					success:function(data){
-						if(data.length>0){
-							localStorage.setItem('name',data[0].user_name);
-							localStorage.setItem('id',data[0].user_id);
-							location.href = 'http://127.0.0.1:3000/index.html';
-						}else {
-							var reg = document.querySelector('.prompt');
-							reg.style.cssText = "opacity:1;";
-						}
-					}
-				});
+			var method = document.querySelectorAll('[data-method="login"]');
+			for(let i=0;i<method.length;i++){
+				(function(i){
+						method[i].addEventListener('click',function(){
+							for(var key of method){
+								key.className = '';
+							}
+							this.className = 'on';
+							if(i==1){
+								name.placeholder ='小米ID';
+								name.name = 'id';
+							}else{
+								name.name = 'user';
+								name.placeholder ='用户名称';
+							}
+						});
+				})(i);
+			}
+
+			btn.addEventListener('click',function(){
+				// 判断是用户名称登录还是ID登录
+				if(name.name == 'user'){
+						ajax({
+							url:'/user/login',
+							type:'post',
+							data: {
+								user_name:name.value,
+								user_pwd:pwd.value,
+							},
+							success:function(data){
+								login(data);
+							}
+						});
+				}else{
+						ajax({
+							url:'/user/login',
+							type:'post',
+							data: {
+								user_id:name.value,
+								user_pwd:pwd.value,
+							},
+							success:function(data){
+								login(data);
+							}
+						});
+				}
 			});
+			// 登录函数
+			function login(data){
+				if(data.length>0){
+					localStorage.setItem('name',data[0].user_name);
+					localStorage.setItem('id',data[0].user_id);
+					ajax({
+						url:'/user/usershop',
+						data:{
+							user_id:localStorage.getItem('id'),
+						},
+						success:function(res){
+							for(var key of res){
+								localStorage.setItem(key.product_id,key.shopcount);
+							}
+						}
+					})
+					location.href = 'http://127.0.0.1:3000/index.html';
+				}else {
+					var reg = document.querySelector('.prompt');
+					reg.style.cssText = "opacity:1;";
+				}
+			}
 		})();
 	</script>
 </body>

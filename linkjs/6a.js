@@ -6,15 +6,9 @@
   var bon = box.offsetTop+610;
   //获取到盒子元素
   var fix = document.querySelector('[data-fix="fixed"]');
-  // console.log(n);
-  var btn = document.querySelector('[data-top="top"]');
-  // btn.onclick = function(){
-  //   document.documentElement.scrollTop = 150;
-  // }
+  // var btn = document.querySelector('[data-top="top"]');
   window.addEventListener('scroll',function(){
     var scrollTop = window.scrollY;
-    // console.log(scrollTop);
-    // console.log(n);
     if(scrollTop > top && scrollTop < bon ){
       fix.classList.add('fix');
     }else {
@@ -26,10 +20,9 @@
       fix.classList.remove('bon');
     }
   })
-  window.addEventListener('load',function(){
-    window.scrollTo = 200;
-  })
-  
+  // window.addEventListener('load',function(){
+  //   window.scrollTo = 200;
+  // })
 })();
 // 定位的转换---------END
 
@@ -204,3 +197,54 @@
   }
 })();
 // 选择样式------------END
+
+// 添加购物车-------start
+(function(){
+  var red6a = document.querySelector('[data-id="26"]');
+  var shop = shopAll();
+  red6a.addEventListener('click', function(){
+    if(!(localStorage.getItem('name'))){
+      if(confirm('请登录后再操作,点击确定跳转登录界面')){
+        location.href = "http://127.0.0.1:3000/user_login.html";
+      }
+      return;
+    }
+    var item = shop[25];
+    shopCarAdd(item);
+    shopCarTab();
+  });
+  function shopCarAdd(data) {
+    let shopCount = document.querySelector('[data-shop="count"]');
+    let shopItem = document.querySelector('[data-shop="list"]');
+    let i = parseInt(shopCount.innerHTML);
+    shopCount.innerHTML = ++i;
+    let count = localStorage.getItem(data.id) || 0;
+    // 如果添加的商品在缓存中存在，不在增加模板，增加商品数量
+    if(!(localStorage.getItem(data.id))){
+      localStorage.setItem(data.id,++count);
+      let li = document.createElement('li');
+      li.innerHTML = `<dl>
+            <dt>
+                <dd class="car-img"><img src="${data.imgpath}" width="60px" height="60px"></dd>
+                <dd class="shop-name">
+                    <span>${data.title}</span>
+                </dd>
+                <dd class="s-price">
+                    <span>${data.price}元 X</span>
+                    <span data-count="sum">1</span>
+                </dd>
+            </dt>
+            <span class="s-c-del" data-id="${data.id}">X</span>
+        </dl>`;
+      shopItem.appendChild(li);
+    }else{
+      // 获取当前点击的这个ID值的元素
+      let True = shopItem.querySelector(`[data-id="${data.id}"]`);
+      // 根据点击的ID值来获取父元素，进行对值的查找
+      let sum = True.parentNode.querySelector('[data-count="sum"]');
+      sum.innerHTML = parseInt(sum.innerHTML)+1;
+      localStorage.setItem(data.id,++count);
+    }
+  }
+})();
+// 添加购物车--------END

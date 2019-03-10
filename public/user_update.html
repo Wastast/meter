@@ -53,8 +53,10 @@
     <!-- 账号安全 -->
     <div class="up-body a-info" >
       <!-- 安全等级-->
-      <div class="u-sercity">
-
+      <div class="u-sercity" data-user="sercity">
+          <h1 class="safety-level">安全等级</h1>
+          <p class="safety-score"><span>25</span>分</p>
+          <span class="line"></span>
       </div>
       <!-- 修改信息-->
       <div class="u-pwd">
@@ -72,10 +74,7 @@
         <div class="data-box">
           <em class="ico-email"></em>
           <p class="fo-top">安全邮箱
-            <!-- <span class="warning"></span>
-            <span class="w-font">未绑定</span> -->
           </p>
-          <!-- <p class="fo-bon">用户保护帐号信息和登录安全</p> -->
           <p class="w-info">安全邮箱将可用于登录小米帐号和重置密码，建议立即设置</p>
         </div>
         <a href="javascript:;" class="update">
@@ -96,10 +95,8 @@
         <div class="data-box">
           <em class="ico-qu"></em>
           <p class="fo-top">密保问题
-            <!-- <span class="warning"></span>
-            <span class="w-font">未绑定</span> -->
+
           </p>
-          <!-- <p class="fo-bon">用户保护帐号信息和登录安全</p> -->
           <p class="w-info">密保问题用于安全验证，建议立即设置</p>
         </div>
         <a href="javascript:;" class="update">
@@ -113,12 +110,12 @@
       <div class="p-img">
         <div class="na-b-img">
           <div class="na-s-img">
-            <img src="http://127.0.0.1:3000/update/n-avator-bg.png" alt="">
+            <img src="http://127.0.0.1:3000/update/n-avator-bg.png">
           </div>
           <em class="u-change"></em>
         </div>
         <div class="img-link">
-          <a href="javascript:;">设置头像</a>
+          <a href="javascript:;" data-user="avert">设置头像</a>
         </div>
       </div>
       <!-- 用户资料修改 -->
@@ -127,7 +124,6 @@
           <a href="javascript:;" data-box="user">编辑</a>
           <h3>基础资料</h3>
         </div>
-
         <div class="f-data">
           <p>
             <span>名称:&emsp;</span>
@@ -356,6 +352,7 @@
       <a href="javascript:;" class="box-out">X</a>
     </div>
   </div>
+  <!-- 设置绑定邮箱 -->
   <div class="propmt-box" data-box="box">
     <div class="p-user">
       <h3>绑定邮箱</h3>
@@ -368,6 +365,7 @@
       <a href="javascript:;" class="box-out">X</a>
     </div>
   </div>
+  <!-- 设置手机账号 -->
   <div class="propmt-box" data-box="box">
     <div class="p-user">
       <h3>设置手机号码</h3>
@@ -380,12 +378,13 @@
       <a href="javascript:;" class="box-out">X</a>
     </div>
   </div>
+  <!-- 设置密保问题 -->
   <div class="propmt-box" data-box="box">
     <div class="p-user">
-      <h3>修改密码</h3>
-      <input type="password" name="onepwd" placeholder="请输入新密码">
-      <span class="box-info" data-info="info">输入错误，两次密码输入不一致</span>
-      <input type="password" name="twopwd" placeholder="请确认新密码">
+      <h3>设置密保问题</h3>
+      <input type="password" name="que" placeholder="请输入密保问题">
+      <span class="box-info" data-info="info">密保问题不能使用数字</span>
+      <input type="password" name="ans" placeholder="请输入密保答案">
       <div class="box-btn">
         <a href="javascript:;" class="p-true" data-true="pwd">确认</a>
         <a href="javascript:;" class="p-false">取消</a>
@@ -431,10 +430,28 @@
       <a href="javascript:;" class="box-out">X</a>
     </div>
   </div>
+  <!-- 更改用户头像 -->
+  <div class="avent" style="display:block" data-box="avent">
+    <div class="p-user">
+      <h3>更改用户头像</h3>
+      <div class="avent-img">
+        <img src="http://127.0.0.1:3000/update/n-avator-bg.png">
+      </div>
+      <div class="upload">
+        <input type="file" name="" id="">
+      </div>
+      <div class="box-btn">
+        <a href="javascript:;" class="p-true">确认</a>
+        <a href="javascript:;" class="p-false">取消</a>
+      </div>
+      <a href="javascript:;" class="box-out">X</a>
+    </div>
+  </div>
   <script src="http://127.0.0.1:3000/base.js"></script>
   <script src="http://127.0.0.1:3000/user_update.js"></script>
   <script>
     (function(){
+      // 页面加载后胖丁用户是否已经登陆,如未登陆则进行页面的跳转
       window.addEventListener('load',function load(){
         if(!(localStorage.getItem('name'))){
           window.removeEventListener('load',load);

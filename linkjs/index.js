@@ -156,9 +156,9 @@
                     </div>
                     <div class="li-shadow item-div">
                         <div class="item-more-icon">
-                            <a href="javascript:;"><i class="iconfont icon-xiayibu"></i></a>
+                            <a href="http://127.0.0.1:3000/product_all.html"><i class="iconfont icon-xiayibu"></i></a>
                         </div>
-                        <a href="javascript:;" class="item-more">浏览更多<small>热门</small></a>
+                        <a href="http://127.0.0.1:3000/product_all.html" class="item-more">浏览更多<small>热门</small></a>
                     </div>
                 </li>`
         item.innerHTML  =  html;
@@ -195,9 +195,9 @@
                     </div>
                     <div class="li-shadow item-div">
                         <div class="item-more-icon">
-                            <a href="javascript:;"><i class="iconfont icon-xiayibu"></i></a>
+                            <a href="http://127.0.0.1:3000/product_all.html"><i class="iconfont icon-xiayibu"></i></a>
                         </div>
-                        <a href="javascript:;" class="item-more">浏览更多<small>热门</small></a>
+                        <a href="http://127.0.0.1:3000/product_all.html" class="item-more">浏览更多<small>热门</small></a>
                     </div>
                 </li>`
         item.innerHTML=html;
@@ -328,6 +328,7 @@
         let now = new Date();
         let date = now.getDate();
         let Hour = now.getHours();
+        target.setMonth(now.getMonth());
         if(Hour<12){
             i=12;
             target.setHours(12);
@@ -377,6 +378,7 @@
 
 // 推荐模块替换商品------start
 (function () {
+    lazyload();
     var change = document.querySelector("[data-replace='replace']");
     var temp = [];
     change.onclick = function () {
@@ -387,11 +389,12 @@
             url:'/product/project',
             success:function(data){
                 temp = data;
-                replace(data);
+                replace(data,1);
+                lazyload(1);
             }
         });
         window.removeEventListener('load',load);
-    })
+    });
 
     function replace(data){
         var item = document.querySelectorAll("[data-recommend-item='item']");
@@ -411,7 +414,11 @@
             let title = item[i].querySelector('.dd-title > a');
             let price = item[i].querySelector('span');
             let evaluate = item[i].querySelector('.dd-rank');
-            img.src = data[arr[i]].product_image;
+            if(arguments[1]==1){
+                img.dataset.lazy = data[arr[i]].product_image;
+            }else{
+                img.src = data[arr[i]].product_image;
+            }
             title.innerHTML = data[arr[i]].product_title;
             price.innerHTML = data[arr[i]].product_price + '元';
             evaluate.innerHTML = data[arr[i]].product_evaluate + '人评价';
@@ -421,38 +428,38 @@
 // 推荐模块替换商品------end
 
 // 商品页面懒加载-----start
-(function(){
-    var lazy = document.querySelectorAll("[data-lazy^='http']");
-    var wHeight = window.innerHeight;
-    var img = [];
+// (function(){
+//     var lazy = document.querySelectorAll("[data-lazy^='http']");
+//     var wHeight = window.innerHeight;
+//     var img = [];
+//     // 当网页宽度或高度改变后触发事件
+//     window.onresize = function(){
+//         wHeight = window.innerHeight;
+//         loadImg();
+//     }
 
-    // 当网页宽度或高度改变后触发事件
-    window.onresize = function(){
-        wHeight = window.innerHeight;
-        loadImg();
-    }
+//     // 滚轮事件
+//     window.addEventListener('scroll',function(){
+//         loadImg();
+//     });
 
-    // 滚轮事件
-    window.addEventListener('scroll',function(){
-        loadImg();
-    })
+//     // 当页面加载时，加载在显示窗口中的图片
+//     window.addEventListener('load',function load(){
+//         loadImg();
+//         window.removeEventListener('load',load);
+//     });
 
-    // 当页面加载时，加载在显示窗口中的图片
-    window.addEventListener('load',function load(){
-        loadImg();
-        window.removeEventListener('load',load);
-    })
+//     function loadImg(){
+//         for(let i=0;i<lazy.length;i++){
+//             // 动态获取当前元素的高度
+//             img[i] = lazy[i].getBoundingClientRect().top;
+//             if(img[i]+300 > 0 && img[i] < wHeight){
+//                 lazy[i].src = lazy[i].dataset.lazy;
+//             }
+//         }
+//     }
+// })();
 
-    function loadImg(){
-        for(let i=0;i<lazy.length;i++){
-            // 动态获取当前元素的高度
-            img[i] = lazy[i].getBoundingClientRect().top;
-            if(img[i]+300 > 0 && img[i] < wHeight){
-                lazy[i].src = lazy[i].dataset.lazy;
-            }
-        }
-    }
-})();
 // 商品页面懒加载-----END
 
 // 回到顶部按钮-------start

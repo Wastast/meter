@@ -121,3 +121,47 @@ input{
   font-weight: bold;
   color: #333;
 }
+/* 弹出提示框 */
+.msg-box {
+  width: 300px;
+  height: 160px;
+  position: fixed;
+  top: -170px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(51, 51, 51, 0.4);
+  padding: 20px;
+  box-sizing: border-box;
+  transition: 1s;
+}
+.msg-box-act {
+  transform: translate(-50%,170px);
+}
+.msg-box h3 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 22px;
+  color: #333;
+}
+.msg-box p {
+  margin: 10px 0 0 20px;
+  font-size: 16px;
+}
+.msg-box .msg-clock {
+  color: rgba(51, 51, 51, 0.7);
+}
+.msg-box .msg-btn {
+  font-size: 14px;
+}
+.msg-box .msg-btn a {
+  float: right;
+  display: block;
+  background-color: #ff6700;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+}

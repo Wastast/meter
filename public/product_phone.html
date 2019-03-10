@@ -30,7 +30,7 @@
                 <div class="last" data-shopcar="last">
                     <a href="http://127.0.0.1:3000/shopcar.html"><i class="iconfont icon-gouwuche"></i>购物车(<span data-shop="count">0</span>)</a>
                     <div class="shopcar">
-                        <!-- <p class="car-default">购物车中还没有商品,赶紧选购把!</p> -->
+                        <p class="car-default">购物车中还没有商品,赶紧选购把!</p>
                         <ul class="shop-list" data-shop='list'>
                             <!-- <li><dl>
                                 <dt>
@@ -140,10 +140,22 @@
         <section>
             <div class="phone-round">
                 <div class="round-img" data-rotate="img">
+                    <ul class="roun">
+                        <li class="show">
+                            <img src="http://127.0.0.1:3000/phone/545a5b5f0cb6cff72c8abc13968a0adf.jpg" width="2560px" style="margin-left: -300px;">
+                        </li>
+                        <li>
+                            <img src="http://127.0.0.1:3000/phone/e56e83596263a461406da48e8786fc31.jpg" width="2560px" style="margin-left: -300px;">
+                        </li>
+                    </ul>
                     <a href="javascript:;" class='arrow-left' data-arrow="arrow-left">
                     </a>
                     <a href="javascript:;" class='arrow-right' data-arrow="arrow-right">
                     </a>
+                    <ul class="focu" data-focu="focu">
+                        <li class="on"></li>
+                        <li></li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -470,7 +482,7 @@
                 <div class="phone-item li-shadow">
                     <div class="item-img">
                         <a href="javascript:;">
-                            <img src="http://127.0.0.1:3000/phone/46f09a8cb3597136ea11235783754aee.jpg">
+                            <img data-lazy="http://127.0.0.1:3000/phone/46f09a8cb3597136ea11235783754aee.jpg">
                         </a>
                     </div>
                     <div class="summary">
@@ -580,39 +592,54 @@
     <script>
         // 页面懒加载 ------ start
         (function(){
-            var lazy = document.querySelectorAll("[data-lazy^='http']");
-            var wHeight = window.innerHeight;
-            var img = [];
-            window.onresize = function(){
-                wHeight = window.innerHeight;
-                loadImg();
-            }
-            window.addEventListener('scroll',function(){
-                loadImg();
-            })
-
-            // 当页面加载时，加载在显示窗口中的图片
-            window.addEventListener('load',function load(){
-                loadImg();
-                window.removeEventListener('load',load);
-            })
-
-            function loadImg(){
-                for(let i=0;i<lazy.length;i++){
-                    img[i] = lazy[i].getBoundingClientRect().top;
-                    if(img[i]+300 > 0 && img[i] < wHeight){
-                        lazy[i].src = lazy[i].dataset.lazy;
-                    }
-                }
-            }
+            lazyload();
         })();
         // 页面懒加载 ------ END
 
         // 手机页面轮播图------ start
         (function(){
-            var img = document.querySelector('[data-rotate="img"]');
+            var img = document.querySelectorAll('[data-rotate="img"] li');
             var left = document.querySelector('[data-arrow="arrow-left"]');
             var right = document.querySelector('[data-arrow="arrow-right"]');
+            var focu = document.querySelectorAll('[data-focu="focu"]>li');
+            var i = 0;
+            left.addEventListener('click',function(){
+                i++;
+                if(i>1){
+                    i=0;
+                }
+                change(i);
+            })
+            right.addEventListener('click',function(){
+                i--;
+                if(i<0){
+                    i=1;
+                }
+                change(i);
+            })
+            function change (index){
+                for(var key of img){
+                    key.className = '';
+                }
+                for(var key of focu){
+                    key.className = '';
+                }
+                focu[index].className = 'on';
+                img[index].className = 'show';
+            }
+
+            for(let n=0;n<focu.length;n++){
+                (function(){
+                    focu[n].addEventListener('click',function(){
+                        for(var key of focu){
+                            key.className = '';
+                        }
+                        this.className = 'on';
+                        i = n;
+                        change(i);
+                    })
+                })(i)
+            }
         })();
         // 手机页面轮播图------ END
     </script>

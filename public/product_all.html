@@ -30,7 +30,7 @@
                 <div class="last" data-shopcar="last">
                     <a href="http://127.0.0.1:3000/shopcar.html"><i class="iconfont icon-gouwuche"></i>购物车(<span data-shop="count">0</span>)</a>
                     <div class="shopcar">
-                        <!-- <p class="car-default">购物车中还没有商品,赶紧选购把!</p> -->
+                        <p class="car-default">购物车中还没有商品,赶紧选购把!</p>
                         <ul class="shop-list" data-shop='list'>
                             <!-- <li><dl>
                                 <dt>
@@ -52,7 +52,7 @@
                     <ul>
                         <li><a href="http://127.0.0.1:3000/user_login.html" title="">登陆</a><b>|</b></li>
                         <li><a href="http://127.0.0.1:3000/user_register.html">注册</a><b>|</b></li>
-                        <li><a href="javascript:;" title="">消息通知</a></li>
+                        <li><a href="javascript:;" title="消息通知">消息通知</a></li>
                     </ul>
                 </div>
 
@@ -139,14 +139,14 @@
     <section>
         <div class="select-nav">
             <div class="currency">
-                <p>首页 > 全部商品</p>
+                <p>首页 > <span data-class="shop">全部</span></p>
             </div>
         </div>
         <div class="select-c">
             <div class="currency">
                 <div class="sort" data-click="class">
                     <p class="s-h">分类: </p>
-                    <span class="on">全部</span>
+                    <span class="on" data-value="all">全部</span>
                     <span data-value="tool">家电</span>
                     <span data-value="phone">手机</span>
                     <span data-value="ai">智能</span>

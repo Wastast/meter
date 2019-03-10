@@ -11,31 +11,39 @@
 </head>
 <body>
   <div class="register">
-      <div class="logo">
-        <img src="http://127.0.0.1:3000/register/milogo.png">
+    <div class="logo">
+      <img src="http://127.0.0.1:3000/register/milogo.png">
+    </div>
+    <div class="title">
+      <h4>注册小米帐号</h4>
+    </div>
+    <div class="register-input">
+      <h4 class="input-title">用户名称</h4>
+      <div class="country">
+        <input type="text" name="uname">
       </div>
-      <div class="title">
-        <h4>注册小米帐号</h4>
+      <h4 class="country-bottom" style="opacity: 0">x</h4>
+      <h4 class="input-title">用户密码</h4>
+      <div class="phone-input">
+        <input type="password" name="upwd">
       </div>
-      <div class="register-input">
-        <h4 class="input-title">用户名称</h4>
-        <div class="country">
-          <input type="text" name="uname">
-        </div>
-        <h4 class="country-bottom" style="opacity: 0">X</h4>
-        <h4 class="input-title">用户密码</h4>
-        <div class="phone-input">
-          <input type="password" name="upwd">
-        </div>
-        <h4 class="country-bottom" style="opacity: 0">X</h4>
-        <div class="register-btn">
-          <a href="javascript:;">立即注册</a>
-        </div>
+      <h4 class="country-bottom" style="opacity: 0">X</h4>
+      <div class="register-btn">
+        <a href="javascript:;">立即注册</a>
       </div>
-      <div class="treaty">
-          <p>注册账号即标识您统一并愿意遵守小米<a href="javascript:;">用户协议</a>和<a href="javascript:;">隐私政策</a></p>
+    </div>
+    <div class="treaty">
+        <p>注册账号即标识您统一并愿意遵守小米<a href="javascript:;">用户协议</a>和<a href="javascript:;">隐私政策</a></p>
+    </div>
+    <div class="msg-box" data-box="msg">
+      <h3>注册成功</h3>
+      <p class="msg-clock" data-msg='clock'><span>3</span>秒后自动跳转登录界面或点击确定跳转</p>
+      <div class="msg-btn">
+        <a href="http://127.0.0.1:3000/user_login.html">确定</a>
       </div>
+    </div>
   </div>
+  <script src="http://127.0.0.1:3000/base.js"></script>
   <script>
     (function(){
       // 获取用户名和密码的input
@@ -53,18 +61,38 @@
       // 用户名事件
       uname.addEventListener("focus",function(){
         text[0].style.cssText  = "opacity:1;";
+        text[0].innerHTML = "不能以非字母和中文的字符开头";
       })
       uname.addEventListener("blur",function(){
         var reg = /^((\d)|(\s)|(\W))+/;
-        if(reg.test(uname.value)){
+        if(uname.value==""){
           text[0].style.cssText  = "color:red";
-          text[0].innerHTML = "不能以非字母和中文的字符开头"
-        }else {
-          text[0].style.cssText  = "color:green";
-          text[0].innerHTML = "该用户名可用";
-          rname=true;
+          text[0].innerHTML = "用户名不能为空";
         }
-      })
+        else if(reg.test(uname.value)){
+          text[0].style.cssText  = "color:red";
+          text[0].innerHTML = "用户名输入错误";
+        }else {
+          ajax({
+            url: '/user/userinfo',
+            type:'post',
+            data: {
+              user_name: uname.value,
+            },
+            success(res){
+              console.log(res);
+              if(res.length ==0){
+                text[0].style.cssText  = "color:green";
+                text[0].innerHTML = "该用户名可用";
+                rname=true;
+              }else{
+                text[0].style.cssText  = "color:red";
+                text[0].innerHTML = "该用户名已存在";
+              }
+            }
+          });
+        }
+      });
 
       // 用户密码事件
       upwd.addEventListener('focus',function(){
@@ -88,15 +116,27 @@
         }
       });
 
+      var clock = document.querySelector("[data-msg='clock']");
+      var box = document.querySelector("[data-box='msg']");
       // 点击注册后触发该事件
       btn.addEventListener('click',function post(){
         if(rname==true && rpwd == true){
           // 跳转到登陆界面
           var xhr = new XMLHttpRequest();
           xhr.onreadystatechange = function() {
-            if(xhr.readyState == 4&& xhr.status == 200){
+            if(xhr.readyState == 4 && xhr.status == 200){
               var result = xhr.responseText;
-              location.href = "http://127.0.0.1:3000/user_login.html";
+              box.classList.add('msg-box-act');
+              // 3秒后跳转连接
+              var time = setTimeout(()=>{
+                location.href = "http://127.0.0.1:3000/user_login.html";
+              },3000)
+              // 定时器倒计时
+              setInterval(()=>{
+                var span = clock.querySelector('span');
+                var i = parseInt(span.innerHTML);
+                span.innerHTML = --i;
+              },1000);
             }
           }
           xhr.open('post','/user/register',true);

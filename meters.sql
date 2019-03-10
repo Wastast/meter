@@ -72,7 +72,8 @@ CREATE TABLE user_product(
 	product_id  VARCHAR(10),             #商品ID
 	title      VARCHAR(124),             #商品标题
 	price      VARCHAR(20),              #商品价格
-	imgpath VARCHAR(128)                 #图片路径
+	imgpath VARCHAR(128),                #图片路径
+	shopcount VARCHAR(20)                #商品数量
 );
 /*插入红米6a 信息数据*/
 INSERT INTO red VALUES 
@@ -99,9 +100,9 @@ INSERT INTO meters_user VALUES
 
 /*插入轮播图数据*/
 INSERT INTO rotate VALUES
-(null,'http://127.0.0.1:3000/index/xmad_15445834783594_TAKmg.jpg'),
-(null,'http://127.0.0.1:3000/index/l2.jpg'),
 (null,'http://127.0.0.1:3000/index/l3.jpg'),
+(null,'http://127.0.0.1:3000/index/l2.jpg'),
+(null,'http://127.0.0.1:3000/index/xmad_15445834783594_TAKmg.jpg'),
 (null,'http://127.0.0.1:3000/index/xmad_15447978785458_LbGnO.jpg'),
 (null,'http://127.0.0.1:3000/index/xmad_15451388199604_kOuBa.jpg');
 
@@ -148,7 +149,7 @@ INSERT INTO product VALUES
 (null,'小米8 屏幕指纹版 8GB+128GB','全球首款压感屏幕指纹，双频GPS','http://127.0.0.1:3000/index/pms_1537356460.6227958!220x220.png',3599,null,'小心被盗',1991,'phone'),
 (null,'小米8 青春版 4GB+64GB','潮流镜面渐变色，2400万自拍旗舰','http://127.0.0.1:3000/index/pms_1537323963.1278763!220x220.jpg',1399,null,'会变色的手机',6548,'phone'),
 (null,'小米MIX 2S 8GB+256GB','骁龙845 年度旗舰处理器','http://127.0.0.1:3000/index/pms_1522034061.12391230!220x220.jpg',3399,null,'旗舰处理器',1923,'phone'),
-(null,'红米6 Pro 3GB+32GB',null,'http://127.0.0.1:3000/index/pms_1529635815.88254264!220x220.jpg',869,null,'红米',9681,'phone'),
+(null,'红米6A Pro 3GB+32GB','年度最佳手机','http://127.0.0.1:3000/index/pms_1528719461.20891365!220x220.jpg',569,null,'红米',9681,'phone'),
 (null,'小米6X 6GB+128GB','轻薄美观的拍照手机','http://127.0.0.1:3000/index/pms_1524621350.77238418!220x220.jpg',1649,null,'女性专用',9467,'phone');
 
 

@@ -1,5 +1,5 @@
-//ajax函数开始-----start
 (function(window){
+    // ajax方法
     function ajax(obj){
       //创建一个默认数据,当用于不填写数据的时候可以默认使用该数据
       var defaults = {
@@ -84,9 +84,71 @@
           }
       }
     }
+    // 切换购物车模块
+    function shopCarTab(){
+        var car = document.querySelector('.shopcar>p');
+        if(car != null){
+            var list = document.querySelector('[data-shop="list"]');
+            // 当ul不等于null时显示ul,否则显示没有显示的值
+            if(list.querySelector('li')!=null){
+                car.style.cssText = "display:none;";
+                list.style.cssText = "display:block;";
+            }else{
+                car.style.cssText = "display:block;";
+                list.style.cssText = "display:none;";
+            }
+        }
+    }
+
+    // 查询所有商品
+    function shop(){
+        var shop = [];
+        if(shop.length==0){
+            ajax({
+                url:'/product/only',
+                isAsyn: false,
+                success:function(data){
+                    shop=data;
+                }
+            });
+        }
+        return shop;
+    }
+    function lazyload(){
+        var lazy = document.querySelectorAll("[data-lazy^='http']");
+        var wHeight = window.innerHeight;
+        var img = [];
+        // 当网页宽度或高度改变后触发事件
+        window.onresize = function(){
+            wHeight = window.innerHeight;
+            loadImg();
+        }
+        // 滚轮事件
+        window.onscroll = function(){
+            loadImg();
+        }
+        // 当页面加载时，加载在显示窗口中的图片
+        // window.addEventListener('load',function load(){
+        //     loadImg();
+        //     window.removeEventListener('load',load);
+        // });
+        loadImg();
+        function loadImg(){
+            for(let i=0;i<lazy.length;i++){
+                img[i] = lazy[i].getBoundingClientRect().top;
+                if(img[i]+300 > 0 && img[i] < wHeight){
+                    lazy[i].src = lazy[i].dataset.lazy;
+                }
+            }
+        }
+        
+    }
+    window.lazyload = lazyload;
     window.ajax = ajax;
+    window.shopCarTab = shopCarTab;
+    window.shopAll = shop;
+
 })(window);
-// ajax 函数结束 ----END
 
 // 导航栏商品添加-----start
 (function(){
@@ -124,7 +186,6 @@
         down.addEventListener('mouseout',function(){
             down.style.cssText = "height:0px;";
         });
-
 
         ajax({
             url:'http://127.0.0.1:3000/product/menu',
@@ -167,6 +228,7 @@
                 url:'/product/only',
                 success:function(data){
                     allShop(data);
+                    shopCarTab();
                 }
             });
         }else{
@@ -174,7 +236,7 @@
             login.style.cssText = "display:none;";
         }
     }
-
+    // 页面加载时，加载购物车
     function allShop(data){
         var shopCount = document.querySelector('[data-shop="count"]');
         var shopItem = document.querySelector('[data-shop="list"]');
@@ -183,7 +245,8 @@
             for(let i =0;i<data.length;i++){
                 if(localStorage.getItem(data[i].id)){
                     let li = document.createElement('li');   
-                    n++;
+                    let shopSum = parseInt(localStorage.getItem(data[i].id));
+                    n += shopSum;
                     li.innerHTML = `<dl>
                                         <dt>
                                             <dd class="car-img"><img src="${data[i].imgpath}" width="60px" height="60px"></dd>
@@ -191,7 +254,8 @@
                                                 <span>${data[i].title}</span>
                                             </dd>
                                             <dd class="s-price">
-                                                <span>${data[i].price}元</span>
+                                                <span>${data[i].price}元 X</span>
+                                                <span data-count="sum">${shopSum}</span>
                                             </dd>
                                         </dt>
                                         <span class="s-c-del" data-id="${data[i].id}">X</span>
@@ -202,18 +266,23 @@
             shopCount.innerHTML = n;
         }
     }
-
+    
     var shopCar = document.querySelector('[data-shop="list"]');
     var shopCount = document.querySelector('[data-shop="count"]');
+    // 删除购物车里的数据
     if(shopCar!=null){
         shopCar.addEventListener('mouseover',function(e){
             if(e.target.nodeName=='LI'){
+                // 获取购物车商品总的数据量
                 var i = parseInt(shopCount.innerHTML);
                 var del = e.target.querySelector('dl>span');
                 del.onclick = function(){
+                    // 获取商品的数据量
+                    let shopSum = localStorage.getItem(this.dataset.id);
                     localStorage.removeItem(this.dataset.id);
                     shopCar.removeChild(e.target);
-                    shopCount.innerHTML = --i;
+                    shopCount.innerHTML = i-shopSum;
+                    shopCarTab();
                 }
             }
         });      
@@ -223,15 +292,43 @@
 
 // 退出登录---------start
 (function(){
+  var shop = shopAll();
   var menu = document.querySelectorAll('.info-down>li');
   if(menu.length>0){
     menu[0].addEventListener('click',function(){
         location.href = 'http://127.0.0.1:3000/personal.html';
-    })
+    });
     menu[4].addEventListener('click',function login(){
+        var data = [];
+        for(let i=0;i<shop.length;i++){
+        if(localStorage.getItem(shop[i].id) != null){
+            let obj = {
+                user_id:localStorage.getItem('id'),
+                product_id:shop[i].id,
+                title:shop[i].title,
+                price:shop[i].price,
+                imgpath:shop[i].imgpath,
+                shopcount:localStorage.getItem(shop[i].id),
+            }
+            data[data.length] = obj;
+        }
+        }
+        // 将data数据 解析成json字符串发送给服务器
+        data = JSON.stringify(data);
+        console.log(data=='[]');
+        if(!(data=='[]')){
+            ajax({
+                url:'/user/addshop',
+                data:{
+                    user:data,
+                },
+                success:function(res){
+                }
+            });
+        }
         localStorage.clear();
         location.reload();
-    })
+    });
   }
 })();
 // 退出登录---------END
@@ -270,58 +367,61 @@
 })();
 //轮播图侧边导航栏的预加载---END
 
-// 一般页面的懒加载方法-------start
-// (function(){
-//     var lazy = document.querySelectorAll("[data-lazy^='http']");
-//     var wHeight = window.innerHeight;    //获取图片显示窗口的高度
-//     var img = [];
-//     // 页面滚动时，判断图片位置动态加载图片
-//     window.onscroll = function(){
-//         for(let i=0;i<lazy.length;i++){
-//             // 动态获取每个图片的高度
-//             img[i] = lazy[i].getBoundingClientRect().top;
-//             if(img[i] < (wHeight+100) && img[i]> -100){
-//                 lazy[i].src = lazy[i].dataset.lazy;
-//             }
-//         }
-//     }
-//     // 当页面加载时，加载在显示窗口中的图片
-//     window.addEventListener('load',function load(){
-//         for(let i=0;i<img.length;i++){
-//             if(img[i]+300 > 0 && img[i] < wHeight){
-//                 lazy[i].src = lazy[i].dataset.lazy;
-//             }
-//         }
-//         window.removeEventListener('load',load);
-//     })
-// })();
-// 一般页面的懒加载方法-------END
-
 // 搜索框查询-------start
 (function(){
     var s_box = document.querySelector('[data-serch="box"]');
     var s_on = document.querySelector('[data-serch="on"]');
     if(s_box!=null){
+        // 用户敲击回车后进行跳转
         s_box.onkeyup = function(e){
             if(e.keyCode==13){
-                if(s_box.value==" "){
-                    location.href = `http://127.0.0.1:3000/product_all.html`;
-                }else{
+                if(s_box.value!=""){
                     location.href = `http://127.0.0.1:3000/product_all.html?title=${s_box.value}`;
                 }
             }
         }
+        // 用户进行点击后进行跳转
         s_on.addEventListener('click',function(){
-            console.log(1);
-            console.log(s_box.value);
-            if(s_box.value==""){
-                console.log(s_box.value);
-                location.href = `http://127.0.0.1:3000/product_all.html`;
-            }else{
+            if(s_box.value!=""){
                 location.href = `http://127.0.0.1:3000/product_all.html?title=${s_box.value}`;
             }
         })
     }
 })();
 // 搜索框查询-------END
+
+// 颜色转换
+(function(){
+    var name = document.querySelector('[data-user="name"]');
+    var div = document.querySelector('.index-user-info');
+    if(div!=null){
+        div.addEventListener('mouseover',function(){
+            name.style.cssText = "color:  #ff6b00;background-color: #fff;";
+        });
+        div.addEventListener('mouseout',function(){
+            name.style.cssText = "color: #b0b0b0;background-color: none;";
+        });
+
+        var shopItem = document.querySelector('[data-shop="list"]');    
+        var carHeight  = document.querySelector('.shopcar');
+        var car = document.querySelector('.last');
+
+        if(car!=null){
+            car.addEventListener('mouseover',function(){
+                var n = shopItem.querySelectorAll('li').length;
+                if(n!=0) {
+                    carHeight.style.cssText = `height:${n*104}px`;
+                    car.querySelector('a').style.cssText = 'color:  #ff6b00;background-color: #fff;';
+                }else {
+                    carHeight.style.cssText = `height:97px`;
+                }
+            });
+            car.addEventListener('mouseout',function(){
+                carHeight.style.cssText = `height:0px`;
+                car.querySelector('a').style.cssText = ' color: #b0b0b0;background-color: #424242;';
+            });
+        }
+    }
+})();
+
 

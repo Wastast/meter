@@ -30,7 +30,7 @@
             <div class="last" data-shopcar="last">
                 <a href="http://127.0.0.1:3000/shopcar.html"><i class="iconfont icon-gouwuche"></i>购物车(<span data-shop="count">0</span>)</a>
                 <div class="shopcar">
-                    <!-- <p class="car-default">购物车中还没有商品,赶紧选购把!</p> -->
+                    <p class="car-default">购物车中还没有商品,赶紧选购把!</p>
                     <ul class="shop-list" data-shop='list'>
                         <!-- <li><dl>
                             <dt>
@@ -51,7 +51,7 @@
                 <ul>
                     <li><a href="http://127.0.0.1:3000/user_login.html" title="">登陆</a><b>|</b></li>
                     <li><a href="http://127.0.0.1:3000/user_register.html">注册</a><b>|</b></li>
-                    <li><a href="javascript:;" title="">消息通知</a></li>
+                    <li><a href="javascript:;">消息通知</a></li>
                 </ul>
             </div>
             <div class="index-login-box"  data-login="true" style="display:none;">
@@ -237,7 +237,7 @@
                 PDAF疾速对焦，锁定你的每个动人瞬间，随手拍出好照片。前置人像模式 + 智能美颜，怎么拍都好看！
             </p>
             <div class="d-rotate">
-                <ul class="r-item" style="transform: translate3d(-3910.0692px,0,0)">
+                <ul class="r-item" style="transform: translate3d(-3910.0692px,0,0); transition-duration: 1s;">
                     <!-- 1 -->
                     <li>
                         <img src="http://127.0.0.1:3000/6a/index_gallery_1.jpg" alt="">
@@ -564,11 +564,17 @@
         </div>
     </div>
   </tfoot>
+  <script>
+      (function(){
+        document.documentElement.scrollTop = 150;
+      })();
+  </script>
   <!-- <script>
       (function(){
         document.documentElement.scrollTop = 150;
       })();
   </script> -->
+  
 <script src="http://127.0.0.1:3000/base.js"></script>
 <script src="http://127.0.0.1:3000/6adesc.js"></script>
 </body> 
